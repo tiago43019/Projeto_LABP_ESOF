@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/teste', function () {
-    return view('teste');
+Route::get('login', function () {
+    return view('layouts.login');
+})->name('login');
+
+Route::get('/home', function () {
+    return view('layouts.home');
 });
