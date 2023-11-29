@@ -10,30 +10,28 @@
 <body>
     <!-- Navbar-->
     @include('includes.navbar')
-
-    <div class="login-box">
-        <h2>Login Form</h2>
-        <form action="">
-            <div class="user-box">
-                <input type="text" required>
-                <label for="">Username</label>
-            </div>
-            <div class="user-box">
-                <input type="password" required>
-                <label for="">password</label>
-            </div>
-            <a href="">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>Submit
-            </a>
-        </form>
+    <div class="login-boxbody">
+        <div class="login-box">
+            <h2>Login Form</h2>
+            <form action="">
+                <div class="user-box">
+                    <input type="text" required>
+                    <label for="">Username</label>
+                </div>
+                <div class="user-box">
+                    <input type="password" required>
+                    <label for="">password</label>
+                </div>
+                <a href="">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>Submit
+                </a>
+            </form>
+        </div>
     </div>
-
     <!--Footer-->
-    <footer>
-        @include('includes.footer')
-    </footer>
+    @include('includes.footer')
 </body>
 </html>
