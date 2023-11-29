@@ -25,7 +25,7 @@
 											<h4 class="mb-4 pb-3">Recuperar Acesso</h4>
 											<div class="form-group">
 												<input type="text" class="form-style" placeholder="Email" required>
-												<i class="input-icon fa-solid fa-user" style="color: #ffffff;"></i>
+                                                <i class="input-icon fa-solid fa-envelope" style="color: #ffffff;"></i>											</div>
 											</div>	
 											<a href="" class="btn mt-4">Recuperar</a>
 				      					</div>
