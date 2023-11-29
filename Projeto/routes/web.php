@@ -19,8 +19,12 @@ Route::get('/', function () {
 
 Route::get('login', function () {
     return view('layouts.login');
-})->name('login');
+})-> name('login');
 
 Route::get('/home', function () {
     return view('layouts.home');
+});
+
+Route::get('/login_forget_password', function () {
+    return view('layouts.login_forget_password');
 });
