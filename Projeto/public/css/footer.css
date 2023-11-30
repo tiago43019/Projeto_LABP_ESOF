@@ -1,0 +1,43 @@
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 0;
+}
+
+.conteudo-footer {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.secoes-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.secao {
+    width: 30%;
+}
+
+.secao h3 {
+    color: #61DAFB;
+}
+
+.secao ul {
+    list-style: none;
+    padding: 0;
+}
+
+.secao ul li {
+    margin-bottom: 8px;
+}
+
+.secao a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+}
+
+.direitos {
+    text-align: center;
+    margin-top: 20px;
+}

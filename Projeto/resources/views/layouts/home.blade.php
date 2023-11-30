@@ -6,6 +6,7 @@
     <title>Mundo Em Rotas</title>
     <link rel="stylesheet" href="css/navbar.css"/>
     <link rel="stylesheet" href="css/home.css"/>
+    <link rel="stylesheet" href="css/footer.css"/>
 </head>
 <body>
     <header>@include('includes.navbar')</header>
@@ -86,5 +87,8 @@
     </div>
 
 
+
+    @include('includes.footer')
+    @include('includes.scripts')
 </body>
 </html>

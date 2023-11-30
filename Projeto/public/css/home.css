@@ -61,7 +61,11 @@ body{
 
 .price {
     font-weight: bold;
-    color: #e44d26;
+    color: black;
     font-size: 0.9em; /* Tamanho menor para o preço */
     align-self: flex-end;
+}
+
+.info .price{
+    font-size: larger;
 }

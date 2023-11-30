@@ -10,7 +10,7 @@
         </div>
         <ul class="nav-links">
             
-            <li><a href="https://www.web-leb.com/code">por fazer</a></li>
+            <li><a href="/explorar">Explorar</a></li>
             <li><a href="https://www.web-leb.com/code">por fazer</a></li>
             <li><input type="search" placeholder="Pesquisar..."></li>
             <li><a class="login-button" href="/login">Entrar</a></li>
