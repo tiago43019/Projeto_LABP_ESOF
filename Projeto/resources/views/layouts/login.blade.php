@@ -11,7 +11,7 @@
 </head>
 <body>
     <a href="/home" class="botaoVoltar">Voltar</a>
-<div class="section">
+	<div class="section">
 		<div class="container">
 			<div class="row full-height justify-content-center">
 				<div class="col-12 text-center align-self-center py-5">

@@ -5,3 +5,63 @@ body{
     color: white;
     background-color: #1f2029;
 }
+@media screen and (max-width: 800px) {
+    body {
+      padding-top: 4.5rem; /* Igual à altura da barra de navegação */
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    nav {
+      position: fixed;
+      top: 0;
+    }
+  }
+
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1300px; /* Defina a largura máxima desejada */
+    margin: 0 auto; /* Centralize a galeria na página */
+}
+
+.item {
+    width: calc(25% - 10px); /* Ajuste conforme necessário para espaço entre as colunas */
+    margin-bottom: 20px;
+    background-color: rgba(245, 245, 245, 0.555);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.item img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.info {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.info h4 {
+    margin-bottom: 8px;
+    font-size: 0.8em; /* Tamanho menor para o título */
+    font-weight: bold;
+}
+
+.info p {
+    margin-bottom: 8px;
+    font-size: 0.7em; /* Tamanho menor para a descrição */
+}
+
+.price {
+    font-weight: bold;
+    color: #e44d26;
+    font-size: 0.9em; /* Tamanho menor para o preço */
+    align-self: flex-end;
+}

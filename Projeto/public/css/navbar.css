@@ -12,10 +12,10 @@
  nav{
     height: 4.5rem;
     width: 100vw;
-    background-color: transparent;
+    background-color: #1f2029;
     box-shadow: 0 3px 20px rgba(245, 245, 245, 0.555);
     display: flex;
-    position: fixed;
+    position: relative;
     z-index: 10;
  }
  
