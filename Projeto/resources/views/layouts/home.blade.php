@@ -13,7 +13,7 @@
     <div><p style='margin-top: 3%;margin-bottom: 2%;'>Explorando destinos, criando memórias. Sua jornada começa aqui. Agência de viagens dedicada a tornar seus sonhos de viagem realidade. </p></div>
     <div class="gallery">
         <div class="item">
-            <a href="/produto1"><img src="/fotos/logo_png.png" alt="Imagem 1"></a>
+            <a href="/atividade"><img src="/fotos/logo_png.png" alt="Imagem 1"></a>
             <div class="info">
                 <h4>Produto 1</h4>
                 <p>Descrição curta do produto.</p>

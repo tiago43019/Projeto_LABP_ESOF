@@ -33,6 +33,10 @@ Route::get('/login_forget_password', function () {
     return view('layouts.login_forget_password');
 });
 
-Route::get('/produto1', function () {
-    return view('layouts.produto1');
+Route::get('/atividade', function () {
+    return view('layouts.atividade');
+});
+
+Route::get('/atividade', function () {
+    return view('atividade');
 });
