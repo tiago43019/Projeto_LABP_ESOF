@@ -4,6 +4,9 @@ body{
     line-height: 1.7;
     color: white;
     background-color: #1f2029;
+    min-height: 100vh; /* Garante que o conteúdo ocupe pelo menos a altura da tela inteira */
+    display: flex;
+    flex-direction: column;
 }
 @media screen and (max-width: 800px) {
     body {
