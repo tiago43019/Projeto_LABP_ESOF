@@ -1,17 +1,19 @@
-<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-            <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="/home">MundoEmRotas</a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="/home#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/home#projects">Projects</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/home#signup">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Entrar</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+<nav>
+        <div class="logo" style="display: flex; align-items: center; margin-top:1.2vh;">
+        <a href="/home"><img src="/fotos/logo_png.png" alt="logo"></a>
+        
+        </div>
+        <div class="hamburger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+        <ul class="nav-links">
+            
+            <li><a href="https://www.web-leb.com/code">por fazer</a></li>
+            <li><a href="https://www.web-leb.com/code">por fazer</a></li>
+            <li><input type="search" placeholder="Pesquisar..."></li>
+            <li><a class="login-button" href="/login">Entrar</a></li>
+        </ul>
+    </nav>
+    <script src="/js/navbar.js"></script>

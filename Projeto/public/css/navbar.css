@@ -12,8 +12,8 @@
  nav{
     height: 4.5rem;
     width: 100vw;
-    background-color: #131418;
-    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2);
+    background-color: transparent;
+    box-shadow: 0 3px 20px rgba(245, 245, 245, 0.555);
     display: flex;
     position: fixed;
     z-index: 10;
@@ -171,3 +171,20 @@
  .toggle .line3{
     transform: rotate(45deg) translate(-5px,-6px);
  }
+
+ /* Estilizando o campo de pesquisa */
+li input[type="search"] {
+   padding: 8px;
+   border: 1px solid #ccc;
+   border-radius: 6px;
+   width: 25vh;
+   outline: none;
+   font-size: 14px;
+   color: black;
+   background-color: #c4c3ca;
+}
+
+/* Adicionando estilos quando o campo de pesquisa recebe foco */
+li input[type="search"]:hover {
+   background-color: white;
+}
