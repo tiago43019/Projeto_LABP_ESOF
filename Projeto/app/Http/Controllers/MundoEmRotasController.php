@@ -33,9 +33,21 @@ class MundoEmRotasController extends Controller
         return view('atividade');
     }
 
-    public function __construct()
-{
-    $this->middleware('guest')->except('logout');
-}
+    public function register(Request $request)
+    {
+        $user = new User();
+        $user->name = $request->nome_completo;
+        $user->username = $request->username;
+        $user->phone = $request->numero_telemovel;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->created_at = now();
+        $user->save();
+        return redirect('/login');
+    }
+
+
+
+
 
 }

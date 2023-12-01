@@ -42,7 +42,8 @@
 									<div class="center-wrap">
 										<div class="section text-center">
 											<h4 class="mb-3 pb-3">Registar</h4>
-											
+											<form action="/register" method="post">
+											@csrf
 											<div class="form-group">
 												<input type="text" class="form-style" name="nome_completo" placeholder="Nome Completo" required>
                                                 <i class="input-icon fa-solid fa-user" style="color: #ffffff;"></i>	
@@ -61,7 +62,7 @@
 											</div>
 											<button type="submit" class="btn mt-4">Registar</button>
 				      					</div>
-
+										  </form>
 			      					</div>
 			      				</div>
 			      			</div>
