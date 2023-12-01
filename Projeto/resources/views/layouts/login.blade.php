@@ -42,24 +42,26 @@
 									<div class="center-wrap">
 										<div class="section text-center">
 											<h4 class="mb-3 pb-3">Registar</h4>
+											
 											<div class="form-group">
-												<input type="text" class="form-style" placeholder="Nome Completo" required>
+												<input type="text" class="form-style" name="nome_completo" placeholder="Nome Completo" required>
                                                 <i class="input-icon fa-solid fa-user" style="color: #ffffff;"></i>	
                                             <div class="form-group mt-2">
-												<input type="text" class="form-style" placeholder="Username" required>
+												<input type="text" class="form-style" name="username" placeholder="Username" required>
                                                 <i class="input-icon fa-solid fa-user-pen" style="color: #ffffff;"></i>											</div>	
 											<div class="form-group mt-2">
-												<input type="tel" class="form-style" placeholder="Numero de telemovel" required>
+												<input type="tel" class="form-style" name="numero_telemovel" placeholder="Numero de telemovel" required>
                                                 <i class="input-icon fa-solid fa-phone" style="color: #ffffff;"></i>											</div>	
                                             <div class="form-group mt-2">
-												<input type="email" class="form-style" placeholder="Email" required>
+												<input type="email" class="form-style" name="email" placeholder="Email" required>
                                                 <i class="input-icon fa-solid fa-envelope" style="color: #ffffff;"></i>											</div>
 											<div class="form-group mt-2">
-												<input type="password" class="form-style" placeholder="Password" required>
+												<input type="password" class="form-style" name="password" placeholder="Password" required>
 												<i class="input-icon fa-solid fa-lock" style="color: #ffffff;"></i>
 											</div>
-											<a href="/login" class="btn mt-4">Registar</a>
+											<button type="submit" class="btn mt-4">Registar</button>
 				      					</div>
+
 			      					</div>
 			      				</div>
 			      			</div>

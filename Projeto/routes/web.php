@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MundoEmRotasController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,30 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/welcome', function () {
-    return view('welcome');
-});
+
 
 Route::get('/', function () {
     return redirect('/home');
 });
 
-Route::get('/login', function () {
-    return view('layouts.login');
-})-> name('login');
-
-Route::get('/home', function () {
-    return view('layouts.home');
-});
-
-Route::get('/login_forget_password', function () {
-    return view('layouts.login_forget_password');
-});
-
-Route::get('/atividade', function () {
-    return view('layouts.atividade');
-});
-
-Route::get('/atividade', function () {
-    return view('atividade');
-});
+Route::get('/welcome', [MundoEmRotasController::class, 'welcome']);
+Route::get('/home', [MundoEmRotasController::class, 'home']);
+Route::get('/login', [MundoEmRotasController::class, 'login']);
+Route::get('/login_forget_password', [MundoEmRotasController::class, 'login_forget_password']);
+Route::get('/atividade', [MundoEmRotasController::class, 'atividade']);
