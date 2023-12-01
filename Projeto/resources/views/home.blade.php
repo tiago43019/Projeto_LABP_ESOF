@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mundo Em Rotas</title>
-    <link rel="stylesheet" href="css/navbar.css"/>
-    <link rel="stylesheet" href="css/home.css"/>
-    <link rel="stylesheet" href="css/footer.css"/>
-</head>
-<body>
-    <header>@include('includes.navbar')</header>
+@extends('layouts.master')
+
+@section('title', 'Mundo Em Rotas')
+
+@section('content')
+    <!-- Conteúdo específico da Atividade 1 -->
     <div><p style='margin-top: 3%;margin-bottom: 2%;'>Explorando destinos, criando memórias. Sua jornada começa aqui. Agência de viagens dedicada a tornar seus sonhos de viagem realidade. </p></div>
     <div class="gallery">
         <div class="item">
@@ -85,10 +79,4 @@
         </div>
 
     </div>
-
-
-
-    @include('includes.footer')
-    @include('includes.scripts')
-</body>
-</html>
+@endsection

@@ -15,7 +15,7 @@ class MundoEmRotasController extends Controller
 
     public function home()
     {
-        return view('layouts.home');
+        return view('/home');
     }
 
     public function login()
