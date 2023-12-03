@@ -8,6 +8,11 @@ body{
     display: flex;
     flex-direction: column;
 }
+
+a {
+  text-decoration: none; /* Remove o sublinhado padrão */
+}
+
 @media screen and (max-width: 800px) {
     body {
       padding-top: 4.5rem; /* Igual à altura da barra de navegação */
@@ -77,6 +82,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    margin-top: 30px;
 }
 
 .favorito-btn {
@@ -110,6 +116,7 @@ img {vertical-align: middle;}
   max-width: 1000px;
   position: relative;
   margin: auto;
+  margin-top: 30px;
 }
 
 /* Next & previous buttons */
@@ -162,8 +169,8 @@ img {vertical-align: middle;}
 /* The dots/bullets/indicators */
 .dot {
   cursor: pointer;
-  height: 15px;
-  width: 15px;
+  height: 10px;
+  width: 10px;
   margin: 0 2px;
   background-color: #bbb;
   border-radius: 50%;
@@ -193,4 +200,125 @@ img {vertical-align: middle;}
 
 .content-section {
     padding: 0 20px; /* Adicione o espaçamento desejado, por exemplo, 20px nas margens esquerda e direita */
+}
+
+.description {
+  max-width: 50%; /* Ajuste conforme necessário */
+  margin: 0; /* Remova a margem para evitar espaçamento extra */
+}
+
+.preco-carrinho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  margin-left: auto; /* Move para o lado direito */
+  margin-right: 0;   /* Move para o lado direito */
+  max-width: 400px;  /* Ou ajuste conforme necessário */
+  background-color: rgba(245, 245, 245, 0.555); /* Mesma cor do botão de favoritos */
+  padding: 10px; /* Adicione padding conforme necessário */
+  border-radius: 8px; /* Adicione borda arredondada conforme necessário */
+}
+
+.preco {
+  width: 48%; /* Ou ajuste conforme necessário */
+}
+
+.adicionar-carrinho {
+  width: 48%; /* Ou ajuste conforme necessário */
+}
+
+.adicionar-carrinho-btn {
+  background-color: #61DAFB; /* Cor azulada */
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.adicionar-carrinho-btn:hover {
+  background-color: #4fa3d1; /* Altere a cor ao passar o mouse conforme necessário */
+}
+
+.comment-section {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: rgba(245, 245, 245, 0.555); /* Mesma cor que a div anterior */
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#comment-form {
+  margin-bottom: 20px;
+}
+
+#comment-input {
+  color: black;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  resize: vertical;
+}
+
+#comment-list {
+  list-style: none;
+  padding: 0;
+}
+
+.comment {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+.comment p {
+  margin: 0;
+}
+
+.comment-button {
+  background-color: rgba(245, 245, 245, 0.555); /* Cor de fundo igual ao texto do placeholder */
+  color: #f2f5f7;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.comment-button:hover {
+  color: black;
+  background-color: white;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  margin-bottom: 8px;
+}
+
+.form-input {
+  color: black;
+  width: 5%;
+  padding: 8px;
+  margin-bottom: 16px;
+}
+
+.comprar-btn {
+  background-color: #61DAFB;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.comprar-btn:hover {
+  background-color: #3182b7;
 }

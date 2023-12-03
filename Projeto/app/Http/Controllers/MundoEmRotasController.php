@@ -33,6 +33,11 @@ class MundoEmRotasController extends Controller
         return view('atividade');
     }
 
+    public function purchase()
+    {
+        return view('purchase');
+    }
+
     public function register(Request $request)
     {
         $user = new User();
