@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/navbar.css"/>
     <link rel="stylesheet" href="css/home.css"/>
     <link rel="stylesheet" href="css/footer.css"/>
+    <link rel="stylesheet" href="css/perfil.css"/>
 </head>
 <body>
     <header>@include('includes.navbar')</header>

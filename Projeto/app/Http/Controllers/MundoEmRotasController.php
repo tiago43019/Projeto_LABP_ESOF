@@ -18,6 +18,11 @@ class MundoEmRotasController extends Controller
         return view('/home');
     }
 
+    public function perfil()
+    {
+        return view('/perfil');
+    }
+
     public function login()
     {
         return view('layouts.login');

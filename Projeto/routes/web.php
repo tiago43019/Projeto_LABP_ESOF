@@ -23,6 +23,7 @@ Route::get('/', function () {
 Route::get('/welcome', [MundoEmRotasController::class, 'welcome']);
 Route::get('/home', [MundoEmRotasController::class, 'home']);
 Route::get('/login', [MundoEmRotasController::class, 'login']);
+Route::get('/perfil', [MundoEmRotasController::class, 'perfil']);
 Route::get('/login_forget_password', [MundoEmRotasController::class, 'login_forget_password']);
 Route::get('/atividade', [MundoEmRotasController::class, 'atividade']);
 Route::get('/purchase', [MundoEmRotasController::class, 'purchase']);
