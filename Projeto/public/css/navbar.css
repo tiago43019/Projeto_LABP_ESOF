@@ -188,3 +188,64 @@ li input[type="search"] {
 li input[type="search"]:hover {
    background-color: white;
 }
+
+.user-menu {
+   position: relative;
+   display: inline-block;
+   cursor: pointer;
+   font-weight: bold;
+}
+
+#user-name {
+   padding: 8px 12px;
+   border-radius: 5px;
+   background-color: #3490dc;
+   color: #fff;
+   transition: background-color 0.3s;
+}
+
+#user-name:hover {
+   background-color: #2779bd;
+}
+
+.mini-menu {
+   position: absolute;
+   top: 100%;
+   left: 0;
+   background-color: #fff;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+   border-radius: 5px;
+   list-style: none;
+   padding: 8px 0;
+   margin: 0;
+   opacity: 0;
+   height: 0;
+   overflow: hidden;
+   transition: height 0.3s, opacity 0.3s;
+   z-index: 1;
+}
+
+.user-menu.active .mini-menu {
+   opacity: 1;
+   height: auto;
+}
+
+.user-menu.active .mini-menu {
+   opacity: 1;
+   height: auto;
+}
+
+.ver-perfil {
+   color: black; /* Adicione esta linha para definir a cor do texto para preto */
+}
+
+.btnlogout {
+   background-color: white;
+   color: black;
+}
+
+.btnlogout:hover {
+   background-color: red;
+   color: white;
+}
+

@@ -44,4 +44,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function getFirstName(){
+        return explode(' ', $this->name)[0];
+    }
+
+    public function getLastName(){
+        $nomeCompleto = explode(' ', $this->name);
+        return end($nomeCompleto);
+    }
 }

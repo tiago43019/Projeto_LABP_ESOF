@@ -2,6 +2,7 @@
 <script src="js/scripts.js"></script>
 <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 <script src="https://kit.fontawesome.com/f733acf00f.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 <script> //favoritoss
         function toggleFavorito(btn) {
             btn.classList.toggle('favorito');

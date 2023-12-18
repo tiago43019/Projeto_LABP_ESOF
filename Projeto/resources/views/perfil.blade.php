@@ -5,30 +5,41 @@
 @section('content')
 
 <div class="container-perfil">
-
-    <div>
-        <img class="imagem_perfil" src="/fotos/paris1.jpeg" alt="Foto Perfil">
-    </div>
-
+    <h2>Perfil de {{ explode(' ', $user->name)[0] }}</h2>
+    
     <form>
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" value="Nome" disabled>
-        <br>
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" value="Username" disabled>
-        <br>
-        <label for="numero_telemovel">Número de Telemóvel:</label>
-        <input type="tel" id="numero_telemovel" name="numero_telemovel" value="numero_telemovel" disabled>
-        <br>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" value="email" disabled>
-        <br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" value="password" disabled>
-
+        <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" value="{{ $user->name }}" disabled>
+        </div>
+        
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" value="{{ $user->username }}" disabled>
+        </div>
+        
+        <div class="form-group">
+            <label for="numero_telemovel">Número de Telemóvel:</label>
+            <input type="tel" id="numero_telemovel" name="numero_telemovel" value="{{ $user->phone }}" disabled>
+        </div>
+        
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="{{ $user->email }}" disabled>
+        </div>
+        
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" value="********" disabled>
+        </div>
     </form>
 
+    <div class="buttons">
+        <button id="editarPerfilBtn" >Editar Perfil</button>
+        <button id="gerirReservasBtn">Gerir Reservas</button>
+    </div>
 </div>
 
-@endsection
 
+
+@endsection

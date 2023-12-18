@@ -25,15 +25,28 @@
 									<div class="center-wrap">
 										<div class="section text-center">
 											<h4 class="mb-4 pb-3">Entrar</h4>
+											<form action="/login" method="post">
+											@csrf
 											<div class="form-group">
-												<input type="text" class="form-style" placeholder="username" required>
+												<input type="text" class="form-style" name="username" placeholder="username" required>
 												<i class="input-icon fa-solid fa-user" style="color: #ffffff;"></i>
 											</div>	
 											<div class="form-group mt-2">
-												<input type="password" class="form-style" placeholder="Password" required>
+												<input type="password" class="form-style" name="password" placeholder="Password" required>
 												<i class="input-icon fa-solid fa-lock" style="color: #ffffff;"></i>
 											</div>
-											<a href="/home" class="btn mt-4">Entrar</a>
+											<button type="submit" class="btn mt-4">Entrar</button>
+											</form>
+											@if($errors->any())
+    											<div class="alert alert-danger">
+													<ul>
+														@foreach ($errors->all() as $error)
+															<li>{{ $error }}</li>
+														@endforeach
+													</ul>
+												</div>
+											@endif
+
                       <p class="mb-0 mt-4 text-center"><a href="/login_forget_password" class="link">Esqueceste-te da palavra passe?</a></p>
 				      					</div>
 			      					</div>

@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\MundoEmRotasController;
+use App\Http\Controllers\loginRegisterController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -28,4 +30,10 @@ Route::get('/login_forget_password', [MundoEmRotasController::class, 'login_forg
 Route::get('/atividade', [MundoEmRotasController::class, 'atividade']);
 Route::get('/purchase', [MundoEmRotasController::class, 'purchase']);
 
-Route::post('/register', [MundoEmRotasController::class, 'register']);
+
+Route::post('/login', [loginRegisterController::class, 'processLogin']);
+Route::post('/register', [loginRegisterController::class, 'register']);
+Route::post('/logout', [loginRegisterController::class, 'logout'])->name('logout');
+
+Route::get('/perfil', [LoginRegisterController::class, 'perfil'])->middleware('auth');
+
