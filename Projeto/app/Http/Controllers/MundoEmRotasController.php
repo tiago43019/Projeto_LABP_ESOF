@@ -47,8 +47,4 @@ class MundoEmRotasController extends Controller
     {
         return view('reservas');
     }
-   
-
-
-
 }

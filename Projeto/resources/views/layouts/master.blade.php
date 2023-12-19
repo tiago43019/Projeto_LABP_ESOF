@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/footer.css"/>
     <link rel="stylesheet" href="css/perfil.css"/>
     <link rel="stylesheet" href="css/editar_perfil.css"/>
+    <link rel="stylesheet" href="css/reservas.css"/>
 </head>
 <body>
     <header>@include('includes.navbar')</header>
