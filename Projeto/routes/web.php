@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\MundoEmRotasController;
 use App\Http\Controllers\loginRegisterController;
+use App\Http\Controllers\AtividadesController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -39,3 +40,5 @@ Route::post('/logout', [loginRegisterController::class, 'logout'])->name('logout
 Route::get('/perfil', [LoginRegisterController::class, 'perfil'])->middleware('auth');
 Route::get('/editar_perfil', [loginRegisterController::class, 'editarPerfil'])->name('editar_perfil');
 Route::post('/perfil/atualizar', [loginRegisterController::class, 'atualizarPerfil'])->name('perfil.atualizar');
+
+Route::get('/home', [AtividadesController::class, 'index']);
