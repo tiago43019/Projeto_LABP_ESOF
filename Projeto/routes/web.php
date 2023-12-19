@@ -29,6 +29,7 @@ Route::get('/perfil', [MundoEmRotasController::class, 'perfil']);
 Route::get('/login_forget_password', [MundoEmRotasController::class, 'login_forget_password']);
 Route::get('/atividade', [MundoEmRotasController::class, 'atividade']);
 Route::get('/purchase', [MundoEmRotasController::class, 'purchase']);
+Route::get('/reservas', [MundoEmRotasController::class, 'reservas']);
 
 
 Route::post('/login', [loginRegisterController::class, 'processLogin']);
@@ -36,4 +37,5 @@ Route::post('/register', [loginRegisterController::class, 'register']);
 Route::post('/logout', [loginRegisterController::class, 'logout'])->name('logout');
 
 Route::get('/perfil', [LoginRegisterController::class, 'perfil'])->middleware('auth');
-
+Route::get('/editar_perfil', [loginRegisterController::class, 'editarPerfil'])->name('editar_perfil');
+Route::post('/perfil/atualizar', [loginRegisterController::class, 'atualizarPerfil'])->name('perfil.atualizar');

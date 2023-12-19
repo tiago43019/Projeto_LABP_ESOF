@@ -19,6 +19,7 @@
             <span id="user-name">{{ Auth::user()->getFirstName() }} {{ Auth::user()->getLastName() }}<i class="fas fa-caret-down"></i></span>
             <ul class="mini-menu">
                 <li><a class="ver-perfil" href="/perfil">Ver Perfil</a></li>
+                <li><a class="gerir-reservas" href="/reservas">Gerir Reservas</a></li>
                 <li>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf

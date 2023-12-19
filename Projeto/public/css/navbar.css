@@ -235,7 +235,7 @@ li input[type="search"]:hover {
    height: auto;
 }
 
-.ver-perfil {
+.ver-perfil, .gerir-reservas {
    color: black; /* Adicione esta linha para definir a cor do texto para preto */
 }
 

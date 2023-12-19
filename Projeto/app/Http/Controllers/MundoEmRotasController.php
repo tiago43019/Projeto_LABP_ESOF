@@ -43,6 +43,10 @@ class MundoEmRotasController extends Controller
         return view('purchase');
     }
 
+    public function reservas()
+    {
+        return view('reservas');
+    }
    
 
 

@@ -34,9 +34,8 @@
         </div>
     </form>
 
-    <div class="buttons">
-        <button id="editarPerfilBtn" >Editar Perfil</button>
-        <button id="gerirReservasBtn">Gerir Reservas</button>
+    <div class="button_editar_perfil">
+        <a href="{{ route('editar_perfil') }}" id="editarPerfilBtn">Editar Perfil</a>
     </div>
 </div>
 

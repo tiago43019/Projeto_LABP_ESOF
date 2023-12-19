@@ -1,4 +1,4 @@
-.container-perfil {
+.container-editar-perfil {
     margin: 5% auto;
     max-width: 600px;
     background-color: #fff;
@@ -55,15 +55,4 @@ h2 {
     text-align: center;
     margin-bottom: 40px;
     color: black; /* Cor do texto */
-}
-
-.button_editar_perfil {
-    display: inline-block;
-    background-color: #3498db;
-    color: #fff;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
 }

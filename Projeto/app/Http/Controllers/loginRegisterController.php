@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Hash;
 
 
 
+
+
 class loginRegisterController extends Controller
 {
 
@@ -59,6 +61,33 @@ class loginRegisterController extends Controller
 
 
         
+    public function editarPerfil(){
+        
+
+        $user = Auth::user();
+
+
+        return view('editar_perfil', compact('user'));
+}
+
+
+public function atualizarPerfil(Request $request){
+
+    $user = Auth::user();
+
+    $user->name = $request->name;
+    $user->username = $request->username;
+    $user->phone = $request->phone;
+    $user->email = $request->email;
+    $user->updated_at = now();
+    if ($user instanceof User) {
+        $user->save();
+    }
+
+    return redirect('/perfil');
+   
+}
+
 }
 
 

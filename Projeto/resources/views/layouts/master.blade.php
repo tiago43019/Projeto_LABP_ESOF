@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/home.css"/>
     <link rel="stylesheet" href="css/footer.css"/>
     <link rel="stylesheet" href="css/perfil.css"/>
+    <link rel="stylesheet" href="css/editar_perfil.css"/>
 </head>
 <body>
     <header>@include('includes.navbar')</header>
