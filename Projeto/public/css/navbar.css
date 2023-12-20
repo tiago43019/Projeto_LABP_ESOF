@@ -197,21 +197,29 @@ li input[type="search"]:hover {
 }
 
 #user-name {
+   display: flex;
+   align-items: center;
    padding: 8px 12px;
    border-radius: 5px;
    background-color: #3490dc;
    color: #fff;
+   cursor: pointer;
    transition: background-color 0.3s;
-}
-
-#user-name:hover {
+ }
+ 
+ #user-name:hover {
    background-color: #2779bd;
-}
-
-.mini-menu {
+ }
+ 
+ #user-name i {
+   margin-left: 5px;
+   transition: transform 0.3s;
+ }
+ 
+ .mini-menu {
    position: absolute;
-   top: 100%;
-   left: 0;
+   top: calc(100% + 10px);
+   right: 0; /* Alterado de 'left: 0;' para 'right: 0;' */
    background-color: #fff;
    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
    border-radius: 5px;
@@ -223,29 +231,41 @@ li input[type="search"]:hover {
    overflow: hidden;
    transition: height 0.3s, opacity 0.3s;
    z-index: 1;
-}
-
-.user-menu.active .mini-menu {
+   width: 150px; /* Ajuste conforme necessário */
+ }
+ 
+ .user-menu.active #user-name i {
+   transform: rotate(180deg);
+ }
+ 
+ .user-menu.active .mini-menu {
    opacity: 1;
    height: auto;
-}
-
-.user-menu.active .mini-menu {
-   opacity: 1;
-   height: auto;
-}
-
-.ver-perfil, .gerir-reservas {
-   color: black; /* Adicione esta linha para definir a cor do texto para preto */
-}
-
-.btnlogout {
-   background-color: white;
-   color: black;
-}
-
-.btnlogout:hover {
-   background-color: red;
-   color: white;
-}
+ }
+ 
+ .ver-perfil,
+ .gerir-reservas,
+ .btnlogout {
+   display: block;
+   padding: 8px 16px;
+   color: #333;
+   text-decoration: none;
+   transition: background-color 0.3s, color 0.3s;
+ }
+ 
+ .ver-perfil:hover,
+ .gerir-reservas:hover {
+   background-color: #f0f0f0;
+   color: #3490dc;
+ }
+ 
+ .btnlogout {
+   background-color: #3490dc; /* Azul por padrão */
+   color: #fff;
+   transition: background-color 0.3s, color 0.3s;
+ }
+ 
+ .btnlogout:hover {
+   background-color: #e74c3c; /* Vermelho ao passar o mouse */
+ }
 
