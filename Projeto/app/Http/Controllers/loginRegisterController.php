@@ -54,9 +54,10 @@ class loginRegisterController extends Controller
             // Passa os dados do usuário para a view
             return view('perfil', ['user' => $user]);
         }
-
-        // Redireciona para a página de login se o usuário não estiver autenticado
-        return redirect('/login');
+        else{
+            // Redireciona para a página home se o usuário não estiver autenticado
+            return redirect('/home');
+        }
     }
 
 
