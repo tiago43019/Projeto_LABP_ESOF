@@ -5,6 +5,7 @@ use App\Http\Controllers\loginRegisterController;
 use App\Http\Controllers\AtividadesController;
 use App\Http\Controllers\ReservaController;
 use Illuminate\Support\Facades\Route;
+use App\Models\Atividade;
 
 
 /*

@@ -10,7 +10,7 @@ body {
   }
 
   .reservations-table {
-    width: 50%;
+    width: 1300px;
     margin: 20px auto;
     border-collapse: collapse;
     overflow: hidden;
@@ -40,3 +40,50 @@ body {
     background-color: #f2f2f2;
   }
 
+  .pagination-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1300px; /* Defina a largura máxima desejada */
+    margin: 0 auto; /* Centralize a galeria na página */
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 15px; /* Adapte conforme necessário para o espaçamento desejado */
+  }
+  
+  .pagination-container .pagination {
+    list-style: none;
+    padding: 0;
+    display: flex;
+  }
+  
+  .pagination-container .pagination li {
+    margin: 0 5px; /* Espaçamento entre os itens da paginação */
+  }
+  
+  .pagination-container .pagination a, .pagination-container .pagination span {
+    display: inline-block;
+    background-color: grey;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .pagination-container .pagination a:hover {
+    background-color: #007bff;
+    color: #fff;
+    border: 1px solid #007bff;
+  }
+  
+  .pagination-container .pagination .active {
+    border-radius: 6px;
+    border: 1px solid white;
+    cursor: default;
+  }
+  .pagination-container .pagination .active .page-link {
+    font-weight: bold;
+    background-color: #007bff;
+  }

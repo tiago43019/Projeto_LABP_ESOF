@@ -28,5 +28,10 @@
         @endforeach
     </tbody>
 </table>
+<div class="flex-container">
+    <div class="pagination-container">
+        {{ $reservas->links() }}
 
+    </div>
+</div>
 @endsection

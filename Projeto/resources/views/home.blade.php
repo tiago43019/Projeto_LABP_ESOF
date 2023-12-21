@@ -18,4 +18,9 @@
             </div>
         @endforeach
     </div>
+    <div class="flex-container">
+        <div class="pagination-container">
+            {{ $atividades->links() }}
+        </div>
+    </div>
 @endsection

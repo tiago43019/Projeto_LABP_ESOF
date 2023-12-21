@@ -1,4 +1,4 @@
-<nav>
+<nav class='nav'>
         <div class="logo" style="display: flex; align-items: center; margin-top:1.2vh;">
         <a href="/home"><img src="/fotos/logo_png.png" alt="logo"></a>
         

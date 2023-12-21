@@ -11,6 +11,6 @@ class ReservasTableSeeder extends Seeder
 {
     public function run()
     {
-        Reserva::factory(5)->create();
+        Reserva::factory(55)->create();
     }
 }

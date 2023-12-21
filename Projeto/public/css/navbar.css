@@ -9,7 +9,7 @@
  body{
     overflow-x: hidden;
  }
- nav{
+ .nav{
     height: 4.5rem;
     width: 100vw;
     background-color: #1f2029;
