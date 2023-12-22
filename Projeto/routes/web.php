@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\MundoEmRotasController;
 use App\Http\Controllers\loginRegisterController;
+use App\Http\Controllers\ForgotPasswordController;
+use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\AtividadesController;
 use App\Http\Controllers\ReservaController;
 use Illuminate\Support\Facades\Route;
@@ -36,6 +38,14 @@ Route::get('/purchase', [MundoEmRotasController::class, 'purchase']);
 Route::post('/login', [loginRegisterController::class, 'processLogin']);
 Route::post('/register', [loginRegisterController::class, 'register']);
 Route::post('/logout', [loginRegisterController::class, 'logout'])->name('logout');
+
+Route::get('/forgot-password', [ForgotPasswordController::class, 'showLinkRequestForm']);
+Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetLinkEmail']);
+
+
+Route::get('/reset-password/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
+
+Route::post('/reset-password', [ResetPasswordController::class, 'reset'])->name('password.update');
 
 Route::get('/perfil', [LoginRegisterController::class, 'perfil'])->middleware('auth');
 Route::get('/editar_perfil', [loginRegisterController::class, 'editarPerfil'])->name('editar_perfil');
