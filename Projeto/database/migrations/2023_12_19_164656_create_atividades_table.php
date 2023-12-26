@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nome');
             $table->text('descricao');
+            $table->string('link_foto')->nullable();
             $table->integer('duracao');
             $table->decimal('preco', 8, 2);
             $table->decimal('pontuacao', 3, 2)->unsigned()->default(0.00);

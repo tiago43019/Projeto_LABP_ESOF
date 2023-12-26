@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Atividade 1')
+@section('title', 'Compra de Bilhete')
 
 @section('content')
     <div class="purchase-container">
@@ -8,15 +8,17 @@
 
         <!-- Informações da Atividade -->
         <div class="activity-info">
-            <h3>Nome da Atividade</h3>
-            <p>Descrição da Atividade</p>
-            <p>Data e Horário: 01/01/2023, 10:00</p>
-            <p>Preço por Bilhete: $100</p>
+            <h3>{{ $atividade->nome }}</h3>
+            <p>{{ $atividade->descricao }}</p>
+            <!-- Adicione mais campos conforme necessário -->
+            <p>Data e Horário: {{ $atividade->data_horario }}</p>
+            <p>Preço por Bilhete: ${{ $atividade->preco }}</p>
         </div>
 
         <!-- Formulário de Compra -->
         <form action="/processar_compra" method="post" class="purchase-form">
             @csrf
+            <input type="hidden" name="atividade_id" value="{{ $atividade->id }}">
             <label for="quantidade" class="form-label">Quantidade de Bilhetes:</label>
             <input type="number" id="quantidade" name="quantidade" class="form-input" min="1" value="1" required>
             <br>

@@ -19,6 +19,7 @@ class AtividadeFactory extends Factory
         return [
             'nome' => $this->faker->word(),
             'descricao' => $this->faker->text(),
+            'link_foto' => 'https://picsum.photos/900/600',
             'duracao' => $this->faker->numberBetween(1, 100),
             'preco' => $this->faker->randomFloat(2, 10, 100),
             'pontuacao' => $this->faker->randomFloat(2, 0, 5),

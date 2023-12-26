@@ -12,6 +12,6 @@ class AtividadesSeeder extends Seeder
      * Run the database seeds.
      */
     public function run(){
-        Atividade::factory(40)->create();
+        Atividade::factory(100)->create();
     }
 }

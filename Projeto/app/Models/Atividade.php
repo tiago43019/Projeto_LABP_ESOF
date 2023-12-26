@@ -17,10 +17,10 @@ class Atividade extends Model
     protected $fillable = [
         'nome',
         'descricao',
+        'link_foto',
         'duracao',
         'preco',
         'pontuacao',
     ];
-
 
 }

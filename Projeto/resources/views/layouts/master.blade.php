@@ -4,17 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Atividade')</title>
-    <link rel="stylesheet" href="css/navbar.css"/>
-    <link rel="stylesheet" href="css/home.css"/>
-    <link rel="stylesheet" href="css/footer.css"/>
-    <link rel="stylesheet" href="css/perfil.css"/>
-    <link rel="stylesheet" href="css/editar_perfil.css"/>
-    <link rel="stylesheet" href="css/reservas.css"/>
+    <link rel="stylesheet" href="{{ asset('css/navbar.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/footer.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/perfil.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/editar_perfil.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/reservas.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/home.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/atividade.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/paymentForm.css') }}"/>
 </head>
 <body>
     <header>@include('includes.navbar')</header>
     
-
     <div class="content">
         @yield('content')
     </div>

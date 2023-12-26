@@ -1,0 +1,183 @@
+body{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    color: white;
+    background-color: #1f2029;
+    min-height: 100vh; /* Garante que o conteúdo ocupe pelo menos a altura da tela inteira */
+    display: flex;
+    flex-direction: column;
+}
+
+.content-section {
+    padding: 0 20px; /* Adicione o espaçamento desejado, por exemplo, 20px nas margens esquerda e direita */
+}
+
+.description {
+  max-width: 50%; /* Ajuste conforme necessário */
+  margin: 0; /* Remova a margem para evitar espaçamento extra */
+}
+
+.preco-carrinho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  margin-left: auto; /* Move para o lado direito */
+  margin-right: 0;   /* Move para o lado direito */
+  max-width: 400px;  /* Ou ajuste conforme necessário */
+  background-color: rgba(245, 245, 245, 0.555); /* Mesma cor do botão de favoritos */
+  padding: 10px; /* Adicione padding conforme necessário */
+  border-radius: 8px; /* Adicione borda arredondada conforme necessário */
+}
+
+.preco {
+  width: 48%; /* Ou ajuste conforme necessário */
+}
+
+.adicionar-carrinho {
+  width: 48%; /* Ou ajuste conforme necessário */
+}
+
+.adicionar-carrinho-btn {
+  background-color: #61DAFB; /* Cor azulada */
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.adicionar-carrinho-btn:hover {
+  background-color: #4fa3d1; /* Altere a cor ao passar o mouse conforme necessário */
+}
+
+.comment-section {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: rgba(245, 245, 245, 0.555); /* Mesma cor que a div anterior */
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#comment-form {
+  margin-bottom: 20px;
+}
+
+#comment-input {
+  color: black;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  resize: vertical;
+}
+
+#comment-list {
+  list-style: none;
+  padding: 0;
+}
+
+.comment {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+.comment p {
+  margin: 0;
+}
+
+.comment-button {
+  background-color: rgba(245, 245, 245, 0.555); /* Cor de fundo igual ao texto do placeholder */
+  color: #f2f5f7;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.comment-button:hover {
+  color: black;
+  background-color: white;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  margin-bottom: 8px;
+}
+
+.form-input {
+  color: black;
+  width: 5%;
+  padding: 8px;
+  margin-bottom: 16px;
+}
+
+.comprar-btn {
+  background-color: #61DAFB;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.comprar-btn:hover {
+  background-color: #3182b7;
+}
+/* Alinhe a paginação à esquerda */
+.pagination-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1300px; /* Defina a largura máxima desejada */
+  margin: 0 auto; /* Centralize a galeria na página */
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 15px; /* Adapte conforme necessário para o espaçamento desejado */
+}
+
+.pagination-container .pagination {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+
+.pagination-container .pagination li {
+  margin: 0 5px; /* Espaçamento entre os itens da paginação */
+}
+
+.pagination-container .pagination a, .pagination-container .pagination span {
+  display: inline-block;
+  background-color: grey;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.pagination-container .pagination a:hover {
+  background-color: #007bff;
+  color: #fff;
+  border: 1px solid #007bff;
+}
+
+.pagination-container .pagination .active {
+  border-radius: 6px;
+  border: 1px solid white;
+  cursor: default;
+}
+.pagination-container .pagination .active .page-link {
+  font-weight: bold;
+  background-color: #007bff;
+}

@@ -6,6 +6,7 @@ use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\AtividadesController;
 use App\Http\Controllers\ReservaController;
+use App\Http\Controllers\purchaseController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Atividade;
 
@@ -52,5 +53,8 @@ Route::get('/editar_perfil', [loginRegisterController::class, 'editarPerfil'])->
 Route::post('/perfil/atualizar', [loginRegisterController::class, 'atualizarPerfil'])->name('perfil.atualizar');
 
 Route::get('/home', [AtividadesController::class, 'index']);
+Route::get('/atividades/{id}', [AtividadesController::class, 'showAtividade']);
+
+Route::get('/purchase/{atividadeId}', [purchaseController::class, 'showPurchasePage']);
 
 Route::get('/reservas', [ReservaController::class, 'showReservas']);
