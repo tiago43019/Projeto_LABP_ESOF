@@ -11,8 +11,12 @@
         <ul class="nav-links">
     <li><a href="/explorar">Explorar</a></li>
     <li><a href="https://www.web-leb.com/code">por fazer</a></li>
-    <li><input type="search" placeholder="Pesquisar..."></li>
     <li>
+    <input type="search" id="searchInput" placeholder="Pesquisar...">
+    <div id="searchResults" class="search-results">
+        <div class="search-curtain" id="searchCurtain"></div>
+    </div>
+    </li>
     @auth
         <!-- Se o usuário estiver autenticado (logado) -->
         <div class="user-menu">

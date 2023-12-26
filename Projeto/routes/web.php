@@ -7,6 +7,7 @@ use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\AtividadesController;
 use App\Http\Controllers\ReservaController;
 use App\Http\Controllers\purchaseController;
+use App\Http\Controllers\searchController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Atividade;
 
@@ -58,3 +59,5 @@ Route::get('/atividades/{id}', [AtividadesController::class, 'showAtividade']);
 Route::get('/purchase/{atividadeId}', [purchaseController::class, 'showPurchasePage']);
 
 Route::get('/reservas', [ReservaController::class, 'showReservas']);
+
+Route::get('/search', [searchController::class, 'search']);
