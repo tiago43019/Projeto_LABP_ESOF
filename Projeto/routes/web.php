@@ -5,6 +5,7 @@ use App\Http\Controllers\loginRegisterController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\AtividadesController;
+use App\Http\Controllers\AtividadesadminController;
 use App\Http\Controllers\ReservaController;
 use App\Http\Controllers\purchaseController;
 use App\Http\Controllers\searchController;
@@ -31,11 +32,13 @@ Route::get('/', function () {
 
 Route::get('/welcome', [MundoEmRotasController::class, 'welcome']);
 Route::get('/home', [MundoEmRotasController::class, 'home']);
+Route::get('/adminhome', [MundoEmRotasController::class, 'adminhome']);
 Route::get('/login', [MundoEmRotasController::class, 'login']);
 Route::get('/perfil', [MundoEmRotasController::class, 'perfil']);
 Route::get('/login_forget_password', [MundoEmRotasController::class, 'login_forget_password']);
 Route::get('/atividade', [MundoEmRotasController::class, 'atividade']);
 Route::get('/purchase', [MundoEmRotasController::class, 'purchase']);
+Route::get('/criaratividade', [MundoEmRotasController::class, 'criaratividade']);
 
 Route::post('/login', [loginRegisterController::class, 'processLogin']);
 Route::post('/register', [loginRegisterController::class, 'register']);
@@ -54,6 +57,7 @@ Route::get('/editar_perfil', [loginRegisterController::class, 'editarPerfil'])->
 Route::post('/perfil/atualizar', [loginRegisterController::class, 'atualizarPerfil'])->name('perfil.atualizar');
 
 Route::get('/home', [AtividadesController::class, 'index']);
+Route::get('/adminhome', [AtividadesadminController::class, 'index']);
 Route::get('/atividades/{id}', [AtividadesController::class, 'showAtividade']);
 
 Route::get('/purchase/{atividadeId}', [purchaseController::class, 'showPurchasePage']);

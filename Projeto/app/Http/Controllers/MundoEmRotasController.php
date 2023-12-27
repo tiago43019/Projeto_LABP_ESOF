@@ -13,8 +13,13 @@ class MundoEmRotasController extends Controller
         return view('welcome');
     }
 
+    public function adminhome()
+    {  
+        return view('/adminhome');
+    }
+
     public function home()
-    {
+    {  
         return view('/home');
     }
 
@@ -47,4 +52,9 @@ class MundoEmRotasController extends Controller
     {
         return view('reservas');
     }
+
+    public function criaratividade()
+    {
+        return view('criaratividade');
+    }    
 }

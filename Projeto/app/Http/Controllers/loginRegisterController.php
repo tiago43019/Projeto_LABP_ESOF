@@ -15,17 +15,25 @@ use Illuminate\Support\Facades\Hash;
 class loginRegisterController extends Controller
 {
 
-    public function processLogin(Request $request){
+    public function processLogin(Request $request)
+    {
         $credentials = $request->only('username', 'password');
 
         if (Auth::attempt($credentials)) {
             // Autenticação bem-sucedida
             $user = Auth::user();
-            return redirect('/home');
-        } else{
+
+            // Verifica se o usuário é um administrador
+            if ($user->is_admin) {
+                return redirect('/adminhome');
+            } else {
+                return redirect('/home');
+            }
+        } else {
             return redirect('/login')->withErrors(['message' => 'Username ou Password incorretos']);
         }
     }
+
 
     public function register(Request $request){
         $user = new User();
