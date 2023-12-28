@@ -19,10 +19,12 @@ class loginRegisterController extends Controller
     {
         $credentials = $request->only('username', 'password');
 
-        if (Auth::attempt($credentials)) {
-            // Autenticação bem-sucedida
-            $user = Auth::user();
+    if (Auth::attempt($credentials)) {
+        // Autenticação bem-sucedida
+        $user = Auth::user();
 
+        // Verifica se o e-mail foi verificado
+        if ($user->email_verified_at !== null) {
             // Verifica se o usuário é um administrador
             if ($user->is_admin) {
                 return redirect('/adminhome');
@@ -30,8 +32,13 @@ class loginRegisterController extends Controller
                 return redirect('/home');
             }
         } else {
-            return redirect('/login')->withErrors(['message' => 'Username ou Password incorretos']);
+            Auth::logout();
+            return redirect('/login')->withErrors(['message' => 'Para puder fazer login, verifique o seu email.']);
         }
+    } else {
+        return redirect('/login')->withErrors(['message' => 'Username ou Password incorretos']);
+    }
+
     }
 
 
@@ -39,12 +46,17 @@ class loginRegisterController extends Controller
         $user = new User();
         $user->name = $request->nome_completo;
         $user->username = $request->username;
+        $user->is_admin = 0;
         $user->phone = $request->numero_telemovel;
         $user->email = $request->email;
         $user->password = $request->password;
         $user->created_at = now();
         $user->save();
-        return redirect('/login');
+
+        $user->sendEmailVerificationNotification();
+
+        return redirect('/login')->with('message', 'Verifique o seu email para ativar a sua conta.');
+
     }
 
     public function logout(){
