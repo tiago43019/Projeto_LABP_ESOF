@@ -9,6 +9,10 @@ body{
     flex-direction: column;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 a {
   text-decoration: none; /* Remove o sublinhado padrão */
 }

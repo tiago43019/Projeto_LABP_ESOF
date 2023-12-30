@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="titulo"><p style='margin-top: 3%;margin-bottom: 2%;'>Explorando destinos, criando memórias. A tua jornada começa aqui. <br> Agência de viagens dedicada a tornar seus sonhos de viagem realidade. </p></div>
-    <div class="gallery">
+    <div id="gallery" class="gallery">
     @foreach($atividades as $atividade)
         <div class="item">
             <a href="/atividades/{{ $atividade->id }}">

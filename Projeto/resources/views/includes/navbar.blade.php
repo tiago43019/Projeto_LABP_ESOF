@@ -10,7 +10,7 @@
         <div class="line3"></div>
     </div>
     <ul class="nav-links">
-        <li><a href="/explorar">Explorar</a></li>
+        <li><a href="#" id="explorarBtn">Explorar</a></li>
         <li>
             <input type="search" id="searchInput" placeholder="Pesquisar...">
             <div id="searchResults" class="search-results">

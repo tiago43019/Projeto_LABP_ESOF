@@ -3,6 +3,8 @@
 <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 <script src="https://kit.fontawesome.com/f733acf00f.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="/js/smooth-scroll.js"></script>
 <script> //favoritoss
         function toggleFavorito(btn) {
             btn.classList.toggle('favorito');
@@ -36,4 +38,23 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "block";  
   dots[slideIndex-1].className += " active";
 }
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('explorarBtn').addEventListener('click', function(e) {
+        e.preventDefault();
+
+        const isAdmin = document.querySelector('.gerir-reservas') !== null;
+        const destination = isAdmin ? '/adminhome#gallery' : '/home#gallery';
+        const galleryElement = document.getElementById('gallery');
+
+        if (galleryElement) {
+            galleryElement.scrollIntoView({
+                behavior: 'smooth'
+            });
+        } else {
+            window.location.href = destination;
+        }
+    });
+});
 </script>

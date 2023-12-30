@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{{ asset('css/atividade.css') }}"/>
     <link rel="stylesheet" href="{{ asset('css/paymentForm.css') }}"/>
 </head>
-<body>
+<body id="body">
     <header>@include('includes.navbar')</header>
     
     <div class="content">
