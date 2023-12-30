@@ -70,3 +70,5 @@ Route::get('/purchase/{atividadeId}', [purchaseController::class, 'showPurchaseP
 Route::get('/reservas', [ReservaController::class, 'showReservas']);
 
 Route::get('/search', [searchController::class, 'search']);
+
+Route::post('/criaratividade', [atividadesadminController::class, 'criarAtividade']);
