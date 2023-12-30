@@ -24,7 +24,7 @@
                 <span id="user-name">{{ Auth::user()->getFirstName() }} {{ Auth::user()->getLastName() }}<i class="fas fa-caret-down"></i></span>
                 <ul class="mini-menu">
                     @if(Auth::user()->is_admin)
-                        <li><a class="gerir-reservas" href="/criaratividade">Criar Atividade</a></li>
+                        <li><a class="criar-atividade" href="/criaratividade">Criar Atividade</a></li>
                     @endif
                     <li><a class="ver-perfil" href="/perfil">Ver Perfil</a></li>
                     <li><a class="gerir-reservas" href="/reservas">Gerir Reservas</a></li>
