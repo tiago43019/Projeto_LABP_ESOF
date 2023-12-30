@@ -72,3 +72,5 @@ Route::get('/reservas', [ReservaController::class, 'showReservas']);
 Route::get('/search', [searchController::class, 'search']);
 
 Route::post('/criaratividade', [atividadesadminController::class, 'criarAtividade']);
+
+Route::post('/atividade/{atividade}/favorito', [AtividadesController::class, 'toggleFavorito'])->middleware('auth')->name('atividade.favorito');

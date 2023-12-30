@@ -324,3 +324,45 @@ li input[type="search"]:hover {
 .search-results p, .search-result-item div {
    color: black;
 }
+
+.cart-curtain {
+   display: none;
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0, 0, 0, 0.5);
+   z-index: 1; /* Posicione a cortina sobre os outros elementos */
+}
+
+.modal {
+   display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    z-index: 2; /* Posicione o modal acima da cortina */
+    width: 80%; /* Ajuste a largura conforme necessário */
+    max-width: 600px; /* Defina uma largura máxima conforme necessário */
+    padding: 20px; /* Ajuste o preenchimento interno conforme necessário */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adicione uma sombra conforme desejado */
+}
+
+.modal-content {
+   padding: 20px;
+}
+
+.close {
+   position: absolute;
+   top: 10px;
+   right: 10px;
+   font-size: 20px;
+   cursor: pointer;
+   color: red;
+}
+
+.itensCarrinho > li{
+   color: black;
+}

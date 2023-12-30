@@ -17,6 +17,11 @@
                 <p>{{ $atividade->descricao }}</p>
                 <p class="price">{{ $atividade->preco }}€</p>
             </div>
+            <form action="/carrinho/adicionar" method="post">
+                    @csrf
+                    <input type="hidden" name="atividade_id" value="{{ $atividade->id }}">
+                    <button type="submit" class="btn-add-to-cart">Adicionar ao Carrinho</button>
+            </form>
         </div>
     @endforeach
     </div>

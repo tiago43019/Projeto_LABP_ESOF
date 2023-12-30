@@ -11,13 +11,13 @@
     </div>
     <ul class="nav-links">
         <li><a href="/explorar">Explorar</a></li>
-        <li><a href="https://www.web-leb.com/code">por fazer</a></li>
         <li>
             <input type="search" id="searchInput" placeholder="Pesquisar...">
             <div id="searchResults" class="search-results">
                 <div class="search-curtain" id="searchCurtain"></div>
             </div>
         </li>
+        <li><a href="#" id="cartIcon"><i class="fas fa-shopping-cart">Carrinho</i></a></li>
         @auth
             <!-- Se o usuário estiver autenticado (logado) -->
             <div class="user-menu">
@@ -42,5 +42,21 @@
         @endauth
     </li>
 </ul>
+
+
+<div id="cartCurtain" class="cart-curtain"></div>
+
+<div id="cartModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeCartModal()">&times;</span>
+        <!-- Adicione aqui a lista de itens no carrinho -->
+        <!-- Exemplo: -->
+        <ul class=itensCarrinho>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <!-- ... -->
+        </ul>
+    </div>
+</div>
 </nav>
 <script src="/js/navbar.js"></script>

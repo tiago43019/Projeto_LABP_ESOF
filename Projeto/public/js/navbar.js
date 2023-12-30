@@ -99,3 +99,15 @@ document.addEventListener('DOMContentLoaded', function () {
         searchResults.innerHTML = '';
     }
 });
+
+document.getElementById('cartIcon').addEventListener('click', openCartModal);
+
+function openCartModal() {
+    document.getElementById('cartCurtain').style.display = 'block';
+    document.getElementById('cartModal').style.display = 'block';
+}
+
+function closeCartModal() {
+    document.getElementById('cartCurtain').style.display = 'none';
+    document.getElementById('cartModal').style.display = 'none';
+}
