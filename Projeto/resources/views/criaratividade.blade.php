@@ -29,11 +29,11 @@
         </div>
         <div class="form-group">
             <label for="preco">Preço:</label>
-            <input type="number" id="preco" name="preco" value="{{ isset($atividade) ? $atividade->preco : '' }}">
+            <input type="decimal" id="preco" name="preco" value="{{ isset($atividade) ? $atividade->preco : '' }}">
         </div>
         <div class="form-group">
             <label for="pontuacao">Pontuação:</label>
-            <input type="number" id="pontuacao" name="pontuacao" value="{{ isset($atividade) ? $atividade->pontuacao : '' }}">
+            <input type="decimal" id="pontuacao" name="pontuacao" value="{{ isset($atividade) ? $atividade->pontuacao : '' }}">
         </div>
         
         
