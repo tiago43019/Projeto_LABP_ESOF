@@ -35,7 +35,7 @@ Route::get('/', function () {
 Route::get('/welcome', [MundoEmRotasController::class, 'welcome']);
 Route::get('/home', [MundoEmRotasController::class, 'home']);
 Route::get('/adminhome', [MundoEmRotasController::class, 'adminhome'])->middleware('admin');
-Route::get('/login', [MundoEmRotasController::class, 'login']);
+Route::get('/login', [MundoEmRotasController::class, 'login'])->name('login');
 Route::get('/perfil', [MundoEmRotasController::class, 'perfil']);
 Route::get('/login_forget_password', [MundoEmRotasController::class, 'login_forget_password']);
 Route::get('/atividade', [MundoEmRotasController::class, 'atividade']);
@@ -57,7 +57,7 @@ Route::get('/reset-password/{token}', [ResetPasswordController::class, 'showRese
 
 Route::post('/reset-password', [ResetPasswordController::class, 'reset'])->name('password.update');
 
-Route::get('/perfil', [LoginRegisterController::class, 'perfil'])->middleware('auth');
+Route::get('/perfil', [LoginRegisterController::class, 'perfil'])->middleware('auth')->name('perfil');
 Route::get('/editar_perfil', [loginRegisterController::class, 'editarPerfil'])->name('editar_perfil');
 Route::post('/perfil/atualizar', [loginRegisterController::class, 'atualizarPerfil'])->name('perfil.atualizar');
 
