@@ -16,19 +16,15 @@
         </div>
 
         <!-- Formulário de Compra -->
-        <form action="/processar_compra" method="post" class="purchase-form">
+        <form action="/carrinho/adicionar" method="post" class="purchase-form">
             @csrf
             <input type="hidden" name="atividade_id" value="{{ $atividade->id }}">
             <label for="quantidade" class="form-label" style="color: white;">Quantidade de Bilhetes:</label>
             <input type="number" id="quantidade" name="quantidade" class="form-input" min="1" value="1" required>
             <br>
             <!-- Adicione mais campos conforme necessário -->
-
-            <form action="/carrinho/adicionar" method="post">
-                    @csrf
-                    <input type="hidden" name="atividade_id" value="{{ $atividade->id }}">
-                    <button type="submit" class="btn-add-to-cart">Adicionar ao Carrinho</button>
-            </form>
+            <input type="hidden" name="atividade_id" value="{{ $atividade->id }}">
+            <button type="submit" class="btn-add-to-cart">Adicionar ao Carrinho</button>
         </form>
     </div>
 @endsection
