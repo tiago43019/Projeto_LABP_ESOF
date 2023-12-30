@@ -49,4 +49,35 @@ class atividadesadminController extends Controller
         return redirect('/criaratividade');
 
     }
+
+
+    public function editarAtividade($id)
+{
+    // Busca a atividade específica pelo ID
+    $atividade = Atividade::find($id);
+
+    // Retorna a view para editar a atividade
+    return view('editarAtividades', compact('atividade'));
+}
+
+public function atualizarAtividade(Request $request, $id)
+{
+    // Busca a atividade específica pelo ID
+    $atividade = Atividade::find($id);
+
+    // Atualiza os campos da atividade com os valores do request
+    $atividade->nome = $request->nome;
+    $atividade->descricao = $request->descricao;
+    $atividade->link_foto = $request->link_foto;
+    $atividade->duracao = $request->duracao;
+    $atividade->preco = $request->preco;
+    $atividade->pontuacao = $request->pontuacao;
+
+    // Salva as alterações
+    $atividade->save();
+
+    // Redireciona de volta para a página da atividade
+    return redirect("/adminhome");
+}
+
 }

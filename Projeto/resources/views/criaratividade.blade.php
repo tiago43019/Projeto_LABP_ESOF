@@ -7,7 +7,7 @@
 @section('content')
 
 <div class="container-editar-perfil">
-    <h2>Criar Atividade</h2>
+    <h2 style="color: black;">Criar Atividade</h2>
     
     <form method="POST" action="/criaratividade">
         @csrf
@@ -17,7 +17,7 @@
         </div>
         <div class="form-group">
             <label for="descricao">Descrição:</label>
-            <input type="text" id="descricao" name="descricao" value="{{ isset($atividade) ? $atividade->descricao : '' }}">
+            <textarea style="color: black;" name="descricao" id="descricao" value="{{ isset($atividade) ? $atividade->descricao : '' }}" cols="30" rows="10"></textarea>
         </div>
         <div class="form-group">
             <label for="link_foto">Foto(link):</label>

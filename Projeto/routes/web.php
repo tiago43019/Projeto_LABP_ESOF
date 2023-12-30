@@ -41,6 +41,7 @@ Route::get('/login_forget_password', [MundoEmRotasController::class, 'login_forg
 Route::get('/atividade', [MundoEmRotasController::class, 'atividade']);
 Route::get('/purchase', [MundoEmRotasController::class, 'purchase']);
 Route::get('/criaratividade', [MundoEmRotasController::class, 'criaratividade'])->middleware('admin');
+Route::get('/reservas', [MundoEmRotasController::class, 'reservas']);
 
 Route::post('/login', [loginRegisterController::class, 'processLogin']);
 Route::post('/register', [loginRegisterController::class, 'register']);
@@ -73,4 +74,6 @@ Route::get('/search', [searchController::class, 'search']);
 
 Route::post('/criaratividade', [atividadesadminController::class, 'criarAtividade']);
 
-Route::post('/atividade/{atividade}/favorito', [AtividadesController::class, 'toggleFavorito'])->middleware('auth')->name('atividade.favorito');
+
+Route::get('/editaratividade/{id}', [AtividadesadminController::class, 'editarAtividade']);
+Route::post('/atualizaratividade/{id}', [AtividadesadminController::class, 'atualizarAtividade']);

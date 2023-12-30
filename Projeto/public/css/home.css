@@ -229,3 +229,31 @@ img {vertical-align: middle;}
 .btn-add-to-cart:hover {
   background-color: #45a049;
 }
+
+.item {
+  position: relative;
+}
+
+.editar-atividade-btn {
+  position: absolute;
+  bottom: 2%;
+  left: 2%;
+  padding: 10px;
+  background-color: #3490dc; /* Cor de fundo do botão */
+  color: #ffffff; /* Cor do texto do botão */
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 800px) {
+  nav {
+      position: static; /* Mude para 'static' em vez de 'fixed' */
+      margin-bottom: 10px; /* Adapte conforme necessário para ajustar a distância entre a navegação e o conteúdo abaixo */
+  }
+}
+
+@media screen and (max-width: 800px) {
+  body {
+      padding-top: 4.5rem; /* Igual à altura da barra de navegação */
+  }
+}
