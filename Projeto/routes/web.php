@@ -6,6 +6,7 @@ use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\AtividadesController;
 use App\Http\Controllers\AtividadesadminController;
+use App\Http\Controllers\favoritosController;
 use App\Http\Controllers\ReservaController;
 use App\Http\Controllers\purchaseController;
 use App\Http\Controllers\searchController;
@@ -70,6 +71,7 @@ Route::get('/purchase/{atividadeId}', [purchaseController::class, 'showPurchaseP
 
 Route::get('/reservas', [ReservaController::class, 'showReservas']);
 
+
 Route::get('/search', [searchController::class, 'search']);
 
 Route::post('/criaratividade', [atividadesadminController::class, 'criarAtividade']);
@@ -77,3 +79,11 @@ Route::post('/criaratividade', [atividadesadminController::class, 'criarAtividad
 
 Route::get('/editaratividade/{id}', [AtividadesadminController::class, 'editarAtividade']);
 Route::post('/atualizaratividade/{id}', [AtividadesadminController::class, 'atualizarAtividade']);
+
+
+Route::post('/adicionar-remover-favorito/{atividadeId}', [AtividadesController::class, 'adicionarAosFavoritos']);
+
+
+Route::get('/favoritos', [favoritosController::class, 'favoritos'])->middleware('auth')->name('favoritos');
+
+

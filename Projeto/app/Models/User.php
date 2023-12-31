@@ -54,4 +54,9 @@ class User extends Authenticatable implements MustVerifyEmail
         $nomeCompleto = explode(' ', $this->name);
         return end($nomeCompleto);
     }
+
+    public function favoritos()
+{
+    return $this->belongsToMany(Atividade::class, 'favoritos', 'user_id', 'atividade_id');
+}
 }

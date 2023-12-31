@@ -27,6 +27,7 @@
                         <li><a class="criar-atividade" href="/criaratividade">Criar Atividade</a></li>
                     @endif
                     <li><a class="ver-perfil" href="/perfil">Ver Perfil</a></li>
+                    <li><a class="gerir-favoritos" href="/favoritos">Gerir Favoritos</a></li>
                     <li><a class="gerir-reservas" href="/reservas">Gerir Reservas</a></li>
                     <li>
                         <form method="POST" action="{{ route('logout') }}">

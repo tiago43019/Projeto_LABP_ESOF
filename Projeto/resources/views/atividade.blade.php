@@ -7,8 +7,8 @@
     <h2>{{ $atividade->nome }}</h2>
     <p class="description">{{ $atividade->descricao }}</p>
     <div class='buttonfav'>
-        <button class="favorito-btn" onclick="toggleFavorito(this)">Adicionar aos Favoritos</button>
-    </div>
+    <button class="favorito-btn" data-atividade-id="{{ $atividade->id }}" onclick="toggleFavorito(this)">Adicionar aos Favoritos</button>
+</div>
     <div class="slideshow-container">
         @for ($i = 1; $i <= 5; $i++)
             <div class="mySlides fade">

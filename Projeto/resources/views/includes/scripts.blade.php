@@ -6,10 +6,27 @@
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="/js/smooth-scroll.js"></script>
 <script> //favoritoss
-        function toggleFavorito(btn) {
-            btn.classList.toggle('favorito');
-            btn.textContent = btn.classList.contains('favorito') ? 'Remover dos Favoritos' : 'Adicionar aos Favoritos';
-        }
+       function toggleFavorito(button) {
+    var atividadeId = button.getAttribute('data-atividade-id');
+
+    // Realiza a requisição AJAX usando o fetch
+    fetch('/adicionar-remover-favorito/' + atividadeId, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+        },
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Atualiza o botão conforme necessário
+        button.textContent = data.isFavorito ? 'Remover dos Favoritos' : 'Adicionar aos Favoritos';
+    })
+    .catch(error => {
+        console.error('Erro na solicitação AJAX: ', error);
+    });
+}
+
 </script>
 <script>
 let slideIndex = 1;
