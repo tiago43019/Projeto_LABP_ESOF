@@ -7,7 +7,7 @@
 @section('content')
 
 <div class="container-editar-perfil">
-    <h2>Perfil de {{ explode(' ', $user->name)[0] }}</h2>
+    <h2 style="color: black;">Perfil de {{ explode(' ', $user->name)[0] }}</h2>
     
     <form method="POST" action="{{ route('perfil.atualizar') }}">
         @csrf

@@ -5,7 +5,7 @@
 @section('content')
 
 <div class="container-perfil">
-    <h2>Perfil de {{ explode(' ', $user->name)[0] }}</h2>
+    <h2 style="color: black;">Perfil de {{ explode(' ', $user->name)[0] }}</h2>
     
     <form>
         <div class="form-group">

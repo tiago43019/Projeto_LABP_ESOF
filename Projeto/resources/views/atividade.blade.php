@@ -38,10 +38,12 @@
             <h3>Comentários</h3>
             
             <!-- Formulário para adicionar um novo comentário -->
-            <form id="comment-form">
-                <textarea id="comment-input" placeholder="Adicione um comentário..." required></textarea>
-                <button class="comment-button" style="background-color: rgba(245, 245, 245, 0.555);">Comentar</button>
+            <form id="comment-form" method="post" action="{{ url('/atividades/' . $atividade->id . '/comentarios') }}">
+                @csrf
+                <textarea id="comment-input" name="content" placeholder="Adicione um comentário..." required></textarea>
+                <button type="submit" class="comment-button" style="background-color: rgba(245, 245, 245, 0.555);">Comentar</button>
             </form>
+
 
             <!-- Lista de comentários existentes -->
             <ul id="comment-list" class="comment-list">
