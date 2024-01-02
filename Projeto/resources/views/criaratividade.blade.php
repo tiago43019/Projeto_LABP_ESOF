@@ -1,5 +1,3 @@
-<!-- editar-perfil.blade.php -->
-
 @extends('layouts.master')
 
 @section('title', 'Mundo Em Rotas - Criar Atividade')
@@ -35,9 +33,6 @@
             <label for="pontuacao">Pontuação:</label>
             <input type="decimal" id="pontuacao" name="pontuacao" value="{{ isset($atividade) ? $atividade->pontuacao : '' }}">
         </div>
-        
-        
-        <!-- Adicione outros campos de formulário conforme necessário -->
 
         <button type="submit" id="criarAtividadeBtn">Criar Atividade</button>
     </form>

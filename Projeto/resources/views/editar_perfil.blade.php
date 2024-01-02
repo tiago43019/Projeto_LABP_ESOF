@@ -1,5 +1,3 @@
-<!-- editar-perfil.blade.php -->
-
 @extends('layouts.master')
 
 @section('title', 'Mundo Em Rotas - Editar Perfil')
@@ -28,9 +26,6 @@
             <input type="email" id="email" name="email" value="{{ $user->email }}">
         </div>
         
-        
-        <!-- Adicione outros campos de formulário conforme necessário -->
-
         <button type="submit" id="salvarAlteracoesBtn">Salvar Alterações</button>
     </form>
 </div>

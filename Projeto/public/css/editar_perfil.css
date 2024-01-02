@@ -18,7 +18,7 @@ form {
 label {
     display: block;
     margin-bottom: 8px;
-    color: #333; /* Cor do texto dos rótulos */
+    color: #333;
 }
 
 input {
@@ -28,7 +28,7 @@ input {
     box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 4px;
-    color: #333; /* Cor do texto nos campos de entrada */
+    color: #333;
 }
 
 button {
@@ -54,5 +54,5 @@ button:disabled {
 h2 {
     text-align: center;
     margin-bottom: 40px;
-    color: black; /* Cor do texto */
+    color: black;
 }

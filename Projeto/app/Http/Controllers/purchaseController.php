@@ -9,12 +9,14 @@ use App\Models\Atividade;
 
 class purchaseController extends Controller
 {
+    //Redireciona para a pagina de compras da atividade certa
     public function showPurchasePage($atividadeId)
     {
         $atividade = Atividade::findOrFail($atividadeId);
         return view('purchase', compact('atividade'));
     }
 
+    //Processo de pagamento
     public function processPurchase(Request $request)
     {
         $atividade = Atividade::findOrFail($request->atividade_id);

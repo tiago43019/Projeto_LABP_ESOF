@@ -1,5 +1,3 @@
-<!-- resources/views/home.blade.php -->
-
 @extends('layouts.master')
 
 @section('title', 'Mundo Em Rotas')

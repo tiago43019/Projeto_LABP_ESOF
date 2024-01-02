@@ -1,5 +1,3 @@
-<!-- editarAtividade.blade.php -->
-
 @extends('layouts.master')
 
 @section('title', 'Mundo Em Rotas - Editar Atividade')
@@ -10,7 +8,7 @@
         
         <form method="POST" action="{{ url('/atualizaratividade/'.$atividade->id) }}">
             @csrf
-            @method('POST') <!-- Adicione esta linha para indicar que é um método POST -->
+            @method('POST')
 
             <div class="form-group">
                 <label for="nome">Nome:</label>
@@ -41,9 +39,7 @@
                 <label for="pontuacao">Pontuação:</label>
                 <input type="decimal" id="pontuacao" name="pontuacao" value="{{ isset($atividade) ? $atividade->pontuacao : '' }}">
             </div>
-            
-            <!-- Adicione outros campos de formulário conforme necessário -->
-        
+                
             <button type="submit" id="editarAtividadeBtn">Salvar Alterações</button>
         </form>
     </div>

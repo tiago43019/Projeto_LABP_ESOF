@@ -9,9 +9,10 @@ use Illuminate\Support\Str;
 
 class ResetPasswordController extends Controller
 {
+    // Define a rota para onde redirecionar apos a redefinição de senha
+    protected $redirectTo = '/login';
 
-    protected $redirectTo = '/login'; // Defina a rota para onde redirecionar após a redefinição de senha
-
+    // Exibe o formulario de redefinição de senha
     public function showResetForm(Request $request, $token = null)
     {
         return view('auth.passwords.reset')->with(
@@ -19,6 +20,7 @@ class ResetPasswordController extends Controller
         );
     }
 
+    // Regras de validação para o formulario de redefinição de senha
     protected function rules()
     {
         return [
@@ -28,6 +30,7 @@ class ResetPasswordController extends Controller
         ];
     }
 
+    // Mensagens de erro personalizadas para as regras de validação
     protected function validationErrorMessages()
     {
         return [
@@ -38,12 +41,12 @@ class ResetPasswordController extends Controller
         ];
     }
 
-    // Ajuste para aceitar um segundo parâmetro, $token
+    // Processa a redefinição de senha
     protected function reset(Request $request, $token = null)
     {
         $request->validate($this->rules(), $this->validationErrorMessages());
 
-        // Ajuste na chamada para incluir o segundo parâmetro, $token
+        // Executa a redefinição de senha
         $response = $this->broker()->reset(
             $this->credentials($request, $token),
             function ($user, $password) {
@@ -51,6 +54,7 @@ class ResetPasswordController extends Controller
             }
         );
 
+        // Verifica o resultado da redefinição e redireciona de acordo
         if ($response == Password::PASSWORD_RESET) {
             return $this->sendResetResponse($response);
         }
@@ -58,6 +62,7 @@ class ResetPasswordController extends Controller
         return $this->sendResetFailedResponse($request, $response);
     }
 
+    // Obtem as credenciais do formulário
     protected function credentials(Request $request, $token)
     {
         return $request->only(
@@ -65,6 +70,7 @@ class ResetPasswordController extends Controller
         );
     }
 
+    // Realiza a redefinição efetiva da senha no banco de dados
     protected function resetPassword($user, $password)
     {
         $user->forceFill([
@@ -73,12 +79,14 @@ class ResetPasswordController extends Controller
         ])->save();
     }
 
+    // Redireciona apos uma redefinição bem-sucedida
     protected function sendResetResponse($response)
     {
         return redirect($this->redirectPath())
             ->with('status', trans($response));
     }
 
+    // Redireciona apos uma redefinição falhada
     protected function sendResetFailedResponse(Request $request, $response)
     {
         return redirect()->back()
@@ -86,11 +94,13 @@ class ResetPasswordController extends Controller
             ->withErrors(['email' => trans($response)]);
     }
 
+    // Retorna o caminho para onde redirecionar
     protected function redirectPath()
     {
         return property_exists($this, 'redirectTo') ? $this->redirectTo : '/layouts/login';
     }
 
+    // Retorna o broker de redefinição de senha
     public function broker()
     {
         return Password::broker();

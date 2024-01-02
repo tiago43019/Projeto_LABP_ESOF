@@ -1,5 +1,3 @@
-<!-- resources/views/adminhome.blade.php -->
-
 @extends('layouts.master')
 
 @section('title', 'Mundo Em Rotas (ADMIN)')

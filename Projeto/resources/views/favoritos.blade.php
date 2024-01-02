@@ -1,5 +1,3 @@
-<!-- resources/views/favoritos.blade.php -->
-
 @extends('layouts.master')
 
 @section('title', 'Mundo Em Rotas - Favoritos')
@@ -30,7 +28,6 @@
     
     <div class="flex-container">
         <div class="pagination-container">
-            <!-- Adicione paginação, se necessário -->
         </div>
     </div>
 @endsection

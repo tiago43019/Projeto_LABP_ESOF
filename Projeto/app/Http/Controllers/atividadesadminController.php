@@ -9,32 +9,33 @@ use Illuminate\Pagination\Paginator;
 
 class atividadesadminController extends Controller
 {
+    //Paginação com x atividades por pagina
     public function index()
     {
-        // Busca todas as atividades do banco de dados
+        
         $atividades = Atividade::all();
-        Paginator::useBootstrap(); // Isso usa o estilo de paginação Bootstrap, você pode personalizar conforme necessário
-        $atividades = Atividade::paginate(12); // 12 atividades por página
+        Paginator::useBootstrap();
+        $atividades = Atividade::paginate(12); // x atividades por cada pagina
         foreach ($atividades as $atividade) {
             $atividade->link_foto = 'https://picsum.photos/900/600?seed=' . $atividade->id;
         }
-        // Retorna a view com as atividades
         return view('adminhome', compact('atividades'));
     }
 
+    //Redireciona para pagina da atividade com seus dados e comentarios
+
     public function showAtividade($id)
     {
-        // Busca a atividade específica pelo ID
         $atividade = Atividade::find($id);
 
-        // Retorna a view com os dados da atividade
         return view('atividade', compact('atividade'));
     }
+
+    //Permite criar uma atividade (ADMIN)
     public function criarAtividade(Request $request)
     {
         $atividade = new Atividade();
 
-        // Preenche os campos da atividade com os valores do request
         $atividade->nome = $request->nome;
         $atividade->descricao = $request->descricao;
         $atividade->link_foto = $request->link_foto;
@@ -51,21 +52,19 @@ class atividadesadminController extends Controller
     }
 
 
+    //Ao clicar no botao editar atividade redireciona para a view com a atividade certa
     public function editarAtividade($id)
 {
-    // Busca a atividade específica pelo ID
     $atividade = Atividade::find($id);
 
-    // Retorna a view para editar a atividade
     return view('editarAtividades', compact('atividade'));
 }
 
+//Editar uma atividade já criada (ADMIN)
 public function atualizarAtividade(Request $request, $id)
 {
-    // Busca a atividade específica pelo ID
     $atividade = Atividade::find($id);
 
-    // Atualiza os campos da atividade com os valores do request
     $atividade->nome = $request->nome;
     $atividade->descricao = $request->descricao;
     $atividade->link_foto = $request->link_foto;
@@ -73,10 +72,8 @@ public function atualizarAtividade(Request $request, $id)
     $atividade->preco = $request->preco;
     $atividade->pontuacao = $request->pontuacao;
 
-    // Salva as alterações
     $atividade->save();
 
-    // Redireciona de volta para a página da atividade
     return redirect("/adminhome");
 }
 

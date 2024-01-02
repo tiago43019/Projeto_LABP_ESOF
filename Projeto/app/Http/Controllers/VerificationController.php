@@ -7,23 +7,23 @@ use Illuminate\Auth\Events\Verified;
 
 class VerificationController extends Controller
 {
-    // Método para mostrar o formulário de verificação
+    // Metodo para mostrar o formulario de verificação
     public function show()
     {
         return view('auth.verify');
     }
 
-    // Método para verificar o e-mail
+    // Metodo para verificar o e-mail
     public function verify(Request $request, $id, $hash)
     {
         $user = \App\Models\User::find($id);
 
     if (!$user || !hash_equals($hash, sha1($user->getEmailForVerification()))) {
-        abort(404); // Usuário não encontrado ou token inválido
+        abort(404); // se user nao for encontrado ou token invalido
     }
 
     if ($user->hasVerifiedEmail()) {
-        // Usuário já verificou o e-mail, redirecione conforme necessário
+        // User ja verificou o e-mail, redirecione conforme necessario
         return redirect('/login')->with('verified', true)->withErrors(['message' => 'A sua conta já se encontrava verificada.']);
     }
 
@@ -37,8 +37,6 @@ class VerificationController extends Controller
     // Método para reenviar o e-mail de verificação
     public function resend(Request $request)
     {
-        // Lógica para reenviar o e-mail de verificação
-
         return back()->with('resent', true);
     }
 }

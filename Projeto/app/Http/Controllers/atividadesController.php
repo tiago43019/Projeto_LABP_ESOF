@@ -13,103 +13,74 @@ use App\Models\User;
 
 class atividadesController extends Controller
 {
+    //Paginação com x atividades por pagina
     public function index()
     {
-        // Busca todas as atividades do banco de dados
         $atividades = Atividade::all();
-        Paginator::useBootstrap(); // Isso usa o estilo de paginação Bootstrap, você pode personalizar conforme necessário
-        $atividades = Atividade::paginate(12); // 12 atividades por página
+        Paginator::useBootstrap();
+        $atividades = Atividade::paginate(12); // x atividades por pagina
         foreach ($atividades as $atividade) {
             $atividade->link_foto = 'https://picsum.photos/900/600?seed=' . $atividade->id;
         }
-        // Retorna a view com as atividades
         return view('home', compact('atividades'));
     }
 
+    //Redireciona para pagina da atividade com seus dados e comentarios
     public function showAtividade($id)
 {
     $atividade = Atividade::with('comentarios.user')->find($id);
     $comentarios = $atividade->comentarios;
 
-
-    // Retorna a view com os dados da atividade
     return view('atividade', compact('atividade', 'comentarios'));
 }
 
 
 
+    //Permite adicionar aos favoritos
+    public function adicionarAosFavoritos($atividadeId)
+    {
+        if (Auth::check()) {
+            $userId = Auth::id();
+            $user = User::find($userId);
+            $user->favoritos()->toggle($atividadeId);
 
-public function adicionarAosFavoritos($atividadeId)
-{
-    // Verifique se o usuário está autenticado
-    if (Auth::check()) {
-        // Obtém o ID do usuário autenticado
-        $userId = Auth::id();
-
-        // Obtém o usuário
-        $user = User::find($userId);
-
-        // Adiciona a atividade aos favoritos
-        $user->favoritos()->toggle($atividadeId);
-
-        // Retorna uma resposta JSON indicando o status
-        return response()->json([
-            'isFavorito' => $user->favoritos()->where('atividade_id', $atividadeId)->exists(),
-        ]);
+            return response()->json([
+                'isFavorito' => $user->favoritos()->where('atividade_id', $atividadeId)->exists(),
+            ]);
+        }
+        return response()->json(['error' => 'Usuário não autenticado'], 401);
     }
 
-    // Retorna uma resposta JSON indicando que o usuário não está autenticado
-    return response()->json(['error' => 'Usuário não autenticado'], 401);
-}
+    //Ver favoritos caso esteja logado
+    public function favoritos()
+        {
+            if (Auth::check()) {
+                $user = Auth::user();
+                $favoritos = $user->favoritos;
 
-
-public function favoritos()
-    {
-        // Verifica se o usuário está autenticado
-        if (Auth::check()) {
-            // Obtém o usuário autenticado
-            $user = Auth::user();
-
-            // Obtém as atividades favoritas do usuário
-            $favoritos = $user->favoritos;
-
-            // Retorna a view com as atividades favoritas
-            return view('favoritos', compact('favoritos'));
+                return view('favoritos', compact('favoritos'));
+            }
+            return redirect('/login')->with('error', 'Faça login para ver seus favoritos.');
         }
 
-        // Se o usuário não estiver autenticado, redireciona para a página de login
-        return redirect('/login')->with('error', 'Faça login para ver seus favoritos.');
-    }
-
-
+    //Adiciona um comentário
     public function adicionarComentario(Request $request, $atividadeId)
 {
-    // Valide a solicitação
     $request->validate([
         'content' => 'required|max:255',
     ]);
 
-    // Verifique se o usuário está autenticado
     if (Auth::check()) {
-        // Obtém o ID do usuário autenticado
         $userId = Auth::id();
-
-        // Crie um novo comentário
         $comment = new Comentario([
             'user_id' => $userId,
             'atividade_id' => $atividadeId,
             'content' => $request->input('content'),
         ]);
-
-        // Salve o comentário no banco de dados
         $comment->save();
 
-        // Redirecione de volta à página de atividade com uma mensagem de sucesso
         return redirect('/atividades/' . $atividadeId)->with('success', 'Comentário adicionado com sucesso!');
     }
-
-    // O usuário não está autenticado, redirecione ou retorne um erro
-    // Você pode personalizar isso conforme necessário
     return redirect('/atividades/' . $atividadeId)->with('error', 'Você precisa estar autenticado para adicionar um comentário.');
 }
 }

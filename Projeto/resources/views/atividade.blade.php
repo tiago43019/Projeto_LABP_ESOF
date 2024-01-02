@@ -37,7 +37,7 @@
         <div class="comment-section">
             <h3>Comentários</h3>
             
-            <!-- Formulário para adicionar um novo comentário -->
+            <!-- comentario section -->
             <form id="comment-form" method="post" action="{{ url('/atividades/' . $atividade->id . '/comentarios') }}">
                 @csrf
                 <textarea id="comment-input" name="content" placeholder="Adicione um comentário..." required></textarea>
@@ -45,7 +45,7 @@
             </form>
 
 
-            <!-- Lista de comentários existentes -->
+            <!-- Lista de comentarios -->
             <ul id="comment-list" class="comment-list">
                 @forelse($comentarios as $comentario)
                     <li class="comment-item">

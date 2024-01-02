@@ -19,7 +19,7 @@
         </li>
         <li><a href="#" id="cartIcon"><i class="fas fa-shopping-cart">Carrinho</i></a></li>
         @auth
-            <!-- Se o usuário estiver autenticado (logado) -->
+            <!-- Se user esta logado -->
             <div class="user-menu">
                 <span id="user-name">{{ Auth::user()->getFirstName() }} {{ Auth::user()->getLastName() }}<i class="fas fa-caret-down"></i></span>
                 <ul class="mini-menu">
@@ -38,7 +38,7 @@
                 </ul>
             </div>
         @else
-            <!-- Se o usuário não estiver autenticado (não logado) -->
+            <!-- Se user nao esta logado -->
             <a href="/login" class="btn">Entrar</a>
         @endauth
     </li>
@@ -50,12 +50,9 @@
 <div id="cartModal" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeCartModal()">&times;</span>
-        <!-- Adicione aqui a lista de itens no carrinho -->
-        <!-- Exemplo: -->
         <ul class=itensCarrinho>
             <li>Item 1</li>
             <li>Item 2</li>
-            <!-- ... -->
         </ul>
     </div>
 </div>

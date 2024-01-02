@@ -11,12 +11,12 @@ use Illuminate\Pagination\Paginator;
 class ReservaController extends Controller
 {
 
+    //Mostra reservas
     public function showReservas()
     {
         if (Auth::check()) {
-            // Recupera o usuário autenticado
             $user = Auth::user();
-            $reservas = Reserva::all(); // ou qualquer lógica para obter as reservas
+            $reservas = Reserva::all();
             Paginator::useBootstrap();
             $reservas = Reserva::paginate(10);
             return view('reservas', compact('reservas'));
