@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Atividade;
+use App\Models\Comentario;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
@@ -27,11 +28,12 @@ class atividadesController extends Controller
 
     public function showAtividade($id)
 {
-    // Busca a atividade específica pelo ID
-    $atividade = Atividade::find($id);
+    $atividade = Atividade::with('comentarios.user')->find($id);
+    $comentarios = $atividade->comentarios;
+
 
     // Retorna a view com os dados da atividade
-    return view('atividade', compact('atividade'));
+    return view('atividade', compact('atividade', 'comentarios'));
 }
 
 
@@ -80,4 +82,34 @@ public function favoritos()
     }
 
 
+    public function adicionarComentario(Request $request, $atividadeId)
+{
+    // Valide a solicitação
+    $request->validate([
+        'content' => 'required|max:255',
+    ]);
+
+    // Verifique se o usuário está autenticado
+    if (Auth::check()) {
+        // Obtém o ID do usuário autenticado
+        $userId = Auth::id();
+
+        // Crie um novo comentário
+        $comment = new Comentario([
+            'user_id' => $userId,
+            'atividade_id' => $atividadeId,
+            'content' => $request->input('content'),
+        ]);
+
+        // Salve o comentário no banco de dados
+        $comment->save();
+
+        // Redirecione de volta à página de atividade com uma mensagem de sucesso
+        return redirect('/atividades/' . $atividadeId)->with('success', 'Comentário adicionado com sucesso!');
+    }
+
+    // O usuário não está autenticado, redirecione ou retorne um erro
+    // Você pode personalizar isso conforme necessário
+    return redirect('/atividades/' . $atividadeId)->with('error', 'Você precisa estar autenticado para adicionar um comentário.');
+}
 }

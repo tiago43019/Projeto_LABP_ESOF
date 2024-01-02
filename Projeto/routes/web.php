@@ -86,4 +86,6 @@ Route::post('/adicionar-remover-favorito/{atividadeId}', [AtividadesController::
 
 Route::get('/favoritos', [favoritosController::class, 'favoritos'])->middleware('auth')->name('favoritos');
 
+Route::post('/atividades/{atividadeId}/comentarios', [AtividadesController::class, 'adicionarComentario']);
+
 

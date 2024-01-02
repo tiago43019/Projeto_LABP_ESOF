@@ -23,4 +23,9 @@ class Atividade extends Model
         'pontuacao',
     ];
 
+    public function comentarios()
+{
+    return $this->hasMany(Comentario::class);
+}
+
 }
