@@ -43,10 +43,8 @@ body {
   .pagination-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     max-width: 1300px; /* Defina a largura máxima desejada */
     margin: 0 auto; /* Centralize a galeria na página */
-    display: flex;
     justify-content: flex-end;
     margin-bottom: 15px; /* Adapte conforme necessário para o espaçamento desejado */
   }

@@ -61,7 +61,7 @@ display: none;
   border-radius: 50%;
   color: white;
   background-color: #020305;
-  font-family: 'unicons';
+  font-family: serif, 'unicons';
   content: '\eb4f';
   z-index: 20;
   top: -10px;
