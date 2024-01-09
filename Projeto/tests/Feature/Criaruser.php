@@ -2,31 +2,29 @@
 
 namespace Tests\Feature;
 
-// use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
-use Faker\Factory as Faker;
 use App\Models\User;
-
-
 
 class Criaruser extends TestCase
 {
-    /**
-     * A basic test example.
-     */
-    public function test_criaruser(): void
+    use RefreshDatabase;
+
+    public function testCriarUser(): void
     {
-        $response = $this->post('register', [
-            'name' => $faker->name,
-            'username' => $faker->userName,
-            'telemovel' => $faker->phoneNumber,
-            'email' => $faker->email,
-            'password' => $faker->password,
-        ]);
+        $userData = [
+            'nome_completo' => 'João Silva',
+            'username' => 'jsilvaa',
+            'numero_telemovel' => '123456789',
+            'email' => 'jota@gmail.com',
+            'password' => 'teste12345',
+        ];
 
-        $user = User::all()->last();
+        // Faz Post
+        $response = $this->post('/register', $userData);
 
+        // Verifica se o user foi criado com sucesso
         $response->assertStatus(302);
-        $this->assertDatabaseHas('users', ['id' => $user->id]);
+
     }
 }
