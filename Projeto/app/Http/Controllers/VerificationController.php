@@ -17,8 +17,10 @@ class VerificationController extends Controller
     public function verify(Request $request, $id, $hash)
     {
         $user = \App\Models\User::find($id);
+        $data = $user->getEmailForVerification();
+        $hash = hash("sha256", $data);
 
-    if (!$user || !hash_equals($hash, sha1($user->getEmailForVerification()))) {
+     if (!$user || !hash_equals($hash, hash('sha256', $user->getEmailForVerification()))) {
         abort(404); // se user nao for encontrado ou token invalido
     }
 
