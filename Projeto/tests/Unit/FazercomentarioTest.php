@@ -8,7 +8,7 @@ use App\Models\User;
 use App\Models\Atividade;
 use App\Models\Comentario;
 
-class Fazercomentario extends TestCase
+class FazercomentarioTest extends TestCase
 {
     use RefreshDatabase;
 
