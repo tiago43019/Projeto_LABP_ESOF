@@ -40,7 +40,7 @@ Route::get('/perfil', [MundoEmRotasController::class, 'perfil']);
 Route::get('/login_forget_password', [MundoEmRotasController::class, 'login_forget_password']);
 Route::get('/atividade', [MundoEmRotasController::class, 'atividade']);
 Route::get('/purchase', [MundoEmRotasController::class, 'purchase']);
-Route::get('/criaratividade', [MundoEmRotasController::class, 'criaratividade'])->middleware('admin');
+Route::get('/criaratividade', [MundoEmRotasController::class, 'criaratividade'])->middleware('auth');
 Route::get('/reservas', [MundoEmRotasController::class, 'reservas']);
 
 Route::post('/login', [loginRegisterController::class, 'processLogin']);
@@ -73,11 +73,14 @@ Route::get('/reservas', [ReservaController::class, 'showReservas']);
 
 Route::get('/search', [searchController::class, 'search']);
 
-Route::post('/criaratividade', [atividadesadminController::class, 'criarAtividade']);
-
-
-Route::get('/editaratividade/{id}', [AtividadesadminController::class, 'editarAtividade']);
-Route::post('/atualizaratividade/{id}', [AtividadesadminController::class, 'atualizarAtividade']);
+Route::post('/criaratividade', [AtividadesController::class, 'criarAtividade'])-> middleware('auth');
+Route::get('/editaratividade/{id}', [AtividadesController::class, 'editarAtividade'])-> middleware('auth');
+Route::post('/atualizaratividade/{id}', [AtividadesController::class, 'atualizarAtividade'])-> middleware('auth');
+Route::get('/geriratividades', [AtividadesController::class, 'gerirAtividades'])-> middleware('auth');
+Route::delete('/atividades/{id}', [AtividadesController::class, 'eliminarAtividade'])-> middleware('auth');
+//Route::post('/criaratividade', [atividadesadminController::class, 'criarAtividade']);
+//Route::get('/editaratividade/{id}', [AtividadesadminController::class, 'editarAtividade']);
+//Route::post('/atualizaratividade/{id}', [AtividadesadminController::class, 'atualizarAtividade']);
 
 
 Route::post('/adicionar-remover-favorito/{atividadeId}', [AtividadesController::class, 'adicionarAosFavoritos']);

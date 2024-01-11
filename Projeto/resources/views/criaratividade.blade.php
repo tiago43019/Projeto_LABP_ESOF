@@ -7,7 +7,7 @@
 <div class="container-editar-perfil">
     <h2 style="color: black;">Criar Atividade</h2>
     
-    <form method="POST" action="/criaratividade">
+    <form method="POST" action="/criaratividade" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <label for="nome">Nome:</label>
@@ -18,8 +18,8 @@
             <textarea style="color: black;" name="descricao" id="descricao" value="{{ isset($atividade) ? $atividade->descricao : '' }}" cols="30" rows="10"></textarea>
         </div>
         <div class="form-group">
-            <label for="link_foto">Foto(link):</label>
-            <input type="text" id="link_foto" name="link_foto" value="{{ isset($atividade) ? $atividade->link_foto : '' }}">
+            <label for="foto">Foto:</label>
+            <input type="file" id="foto" name="foto">
         </div>
         <div class="form-group">
             <label for="duracao">Duração:</label>

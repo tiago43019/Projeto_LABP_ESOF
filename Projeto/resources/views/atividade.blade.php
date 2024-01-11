@@ -5,7 +5,8 @@
 @section('content')
     <div class="content-section">
         <h2>{{ $atividade->nome }}</h2>
-        <p class="description">{{ $atividade->descricao }}</p>
+        <p>Criado por: {{ $atividade->user->name }}</p>
+        <p class="description">Descrição: {{ $atividade->descricao }}</p>
         <div class='buttonfav'>
             <button class="favorito-btn" data-atividade-id="{{ $atividade->id }}" onclick="toggleFavorito(this)">Adicionar aos Favoritos</button>
         </div>
@@ -13,7 +14,7 @@
             @for ($i = 1; $i <= 5; $i++)
                 <div class="mySlides fade">
                     <div class="numbertext">{{ $i }} / 3</div>
-                    <img src="{{ $atividade->link_foto . "?photo=" . $i }}" style="width:100%">
+                    <img src="{{asset($atividade->link_foto) . "?photo=" . $i }}" style="width:100%">
                 </div>
             @endfor
             <a class="prev" onclick="plusSlides(-1)">❮</a>

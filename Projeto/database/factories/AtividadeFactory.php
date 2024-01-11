@@ -17,6 +17,7 @@ class AtividadeFactory extends Factory
     public function definition(): array
     {
         return [
+            'user_id' => $this->faker->numberBetween(1, 10),
             'nome' => $this->faker->word(),
             'descricao' => $this->faker->text(),
             'link_foto' => 'https://picsum.photos/900/600',

@@ -15,6 +15,7 @@ class Atividade extends Model
     
 
     protected $fillable = [
+        'user_id',
         'nome',
         'descricao',
         'link_foto',
@@ -22,6 +23,10 @@ class Atividade extends Model
         'preco',
         'pontuacao',
     ];
+
+    public function user() {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 
     public function comentarios()
 {

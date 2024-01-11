@@ -245,6 +245,7 @@ li input[type="search"]:hover {
  .gerir-reservas,
  .criar-atividade,
  .gerir-favoritos,
+ .gerir-atividades,
  .btnlogout {
    display: block;
    padding: 8px 16px;

@@ -8,7 +8,7 @@
     @foreach($atividades as $atividade)
         <div class="item">
             <a href="/atividades/{{ $atividade->id }}">
-                <img src="{{$atividade->link_foto}}" alt="{{ $atividade->nome }}">
+                <img src="{{$atividade->link_foto}}" alt="{{ $atividade->nome }}" style="height:auto">
             </a>
             <div class="info">
                 <h4>{{ $atividade->nome }}</h4>

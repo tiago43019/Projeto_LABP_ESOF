@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('atividades', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('nome');
             $table->text('descricao');
-            $table->string('link_foto')->nullable();
+            $table->string('link_foto');
             $table->integer('duracao');
             $table->decimal('preco', 8, 2);
             $table->decimal('pontuacao', 3, 2)->unsigned()->default(0.00);
