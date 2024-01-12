@@ -16,7 +16,7 @@
         </div>
 
         <!-- Formulário de Pagamento (a ser integrado com Stripe) -->
-        <div class="payment-form">
+        <div class="payment-form" id="card-element">
             <h3>Informações de Pagamento</h3>
             <label for="card-holder-name">Nome no Cartão:</label>
             <input type="text" id="card-holder-name" name="card_holder_name" required>
@@ -53,43 +53,56 @@
     </div>
 
 
+<!-- Certifique-se de incluir a biblioteca Stripe.js -->
+<!-- Certifique-se de incluir a biblioteca Stripe.js -->
+<script src="https://js.stripe.com/v3/"></script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-$(document).ready(function() {
-    $('form').on('submit', function(e) {
-        e.preventDefault();
+    $(document).ready(function () {
+        var stripe = Stripe('{{ env("SUA_CHAVE_PUBLICA_DO_STRIPE") }}'); // Corrija para pegar a chave correta
+        var elements = stripe.elements();
 
-        // Obtenha o valor do ID da atividade
-        var atividadeId = $('input[name="atividade_id"]').val();
-        console.log("Atividade ID: ", atividadeId);
+        // Crie o elemento do cartão
+        var card = elements.create('card');
+        card.mount('#card-element');
 
+        // Capture o formulário de pagamento ao ser enviado
+        $('form').on('submit', function (e) {
+            e.preventDefault();
 
-        var dados = {
-            _token: "{{ csrf_token() }}",
-            card_holder_name: $('#card-holder-name').val(),
-            card_number: $('#card-number').val(),
-            card_expiry: $('#card-expiry').val(),
-            card_cvc: $('#card-cvc').val(),
-            atividade_id: $('input[name="atividade_id"]').val(),
-            quantidade: $('#quantidade').val()
-            // Inclua outros campos do formulário conforme necessário
-        };
+            // Use FormData para coletar dados do formulário
+            var formData = new FormData(this);
+            
+            // Adicione o token do cartão ao FormData
+            stripe.createToken(card).then(function (result) {
+                if (result.error) {
+                    // Exiba erros ao usuário, se houver algum
+                    console.error(result.error.message);
+                } else {
+                    // Adicione o token do cartão ao FormData
+                    formData.append('card_token', result.token.id);
 
-        $.ajax({
-            url: '/purchase/' + $('input[name="atividade_id"]').val(),
-            type: 'POST',
-            data: dados,
-            success: function(response) {
-                console.log(response);
-                // Aqui você pode redirecionar o usuário ou mostrar uma mensagem de sucesso
-            },
-            error: function(error) {
-                console.log(error);
-                // Tratar erros
-            }
+                    // Envie os dados do formulário (incluindo o token do cartão) para o servidor
+                    $.ajax({
+                        url: '/purchase/' + $('input[name="atividade_id"]').val(),
+                        type: 'POST',
+                        data: formData,
+                        processData: false,  // Não processar os dados
+                        contentType: false,  // Não configurar o tipo de conteúdo
+                        success: function (response) {
+                            console.log('Resposta do servidor:', response);
+                            // Aqui você pode redirecionar o usuário ou mostrar uma mensagem de sucesso
+                        },
+                        error: function (error) {
+                            console.error('Erro ao enviar para o servidor:', error);
+                            // Trate erros
+                        }
+                    });
+                }
+            });
         });
     });
-});
 </script>
 
 @endsection
