@@ -139,10 +139,14 @@ class atividadesController extends Controller
  
      $atividade->nome = $request->nome;
      $atividade->descricao = $request->descricao;
-     $atividade->link_foto = $request->link_foto;
      $atividade->duracao = $request->duracao;
      $atividade->preco = $request->preco;
      $atividade->pontuacao = $request->pontuacao;
+
+     if ($request->hasFile('foto')) {
+        $path = $request->file('foto')->store('public/atividades');
+        $atividade->link_foto = Storage::url($path);
+    }
  
      $atividade->save();
  

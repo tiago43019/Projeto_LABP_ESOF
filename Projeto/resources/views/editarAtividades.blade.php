@@ -21,8 +21,8 @@
             </div>
 
             <div class="form-group">
-                <label for="link_foto">Foto(link):</label>
-                <input type="text" id="link_foto" name="link_foto" value="{{ isset($atividade) ? $atividade->link_foto : '' }}">
+                <label for="foto">Foto:</label>
+                <input type="file" id="foto" name="foto">
             </div>
 
             <div class="form-group">
