@@ -112,7 +112,7 @@ class atividadesController extends Controller
          $atividade->save();
      
  
-         return redirect('/criaratividade');
+         return redirect('/geriratividades');
  
      }
  
