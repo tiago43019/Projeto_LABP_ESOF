@@ -6,7 +6,7 @@
     <div class="container-editar-perfil">
         <h2 style="color: black;">Editar Atividade</h2>
         
-        <form method="POST" action="{{ url('/atualizaratividade/'.$atividade->id) }}">
+        <form method="POST" action="{{ url('/atualizaratividade/'.$atividade->id) }}" enctype="multipart/form-data">
             @csrf
             @method('POST')
 
