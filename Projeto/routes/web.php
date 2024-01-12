@@ -10,6 +10,7 @@ use App\Http\Controllers\ReservaController;
 use App\Http\Controllers\purchaseController;
 use App\Http\Controllers\searchController;
 use App\Http\Controllers\VerificationController;
+use App\Http\Controllers\stripeController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Atividade;
 use Illuminate\Support\Facades\Auth;
@@ -67,6 +68,12 @@ Route::get('/adminhome', [AtividadesadminController::class, 'index'])->middlewar
 Route::get('/atividades/{id}', [AtividadesController::class, 'showAtividade']);
 
 Route::get('/purchase/{atividadeId}', [purchaseController::class, 'showPurchasePage']);
+Route::post('/purchase/{atividadeId}', [purchaseController::class, 'processPayment']);
+
+//Route::get('/purchase/{atividadeId}', [stripeController::class, 'purchase'])->name('purchase');
+//Route::post('/checkout', [stripeController::class, 'checkout'])->name('checkout');
+//Route::get('/success', [stripeController::class, 'success'])->name('success');
+
 
 Route::get('/reservas', [ReservaController::class, 'showReservas']);
 
@@ -89,5 +96,4 @@ Route::post('/adicionar-remover-favorito/{atividadeId}', [AtividadesController::
 Route::get('/favoritos', [AtividadesController::class, 'favoritos'])->middleware('auth')->name('favoritos');
 
 Route::post('/atividades/{atividadeId}/comentarios', [AtividadesController::class, 'adicionarComentario'])->middleware('auth');
-
 

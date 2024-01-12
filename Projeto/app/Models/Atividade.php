@@ -29,8 +29,12 @@ class Atividade extends Model
     }
 
     public function comentarios()
-{
+    {
     return $this->hasMany(Comentario::class);
-}
+    }
+
+    public function agendamentos() {
+        return $this->hasMany(Agendamento::class);
+    }
 
 }

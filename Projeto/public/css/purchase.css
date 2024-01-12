@@ -1,0 +1,107 @@
+.content{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.purchase-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.purchase-container h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.activity-info {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.activity-info h3 {
+    margin-top: 0;
+    color: #0275d8;
+}
+
+.activity-info p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.purchase-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.purchase-form label {
+    color: #333;
+    font-weight: bold;
+}
+
+.purchase-form input[type="number"],
+.purchase-form select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    border-color: #333;
+    font-size: 16px;
+    color: #333;
+    min-width: 100px;
+}
+
+.comprar-btn {
+    background-color: #0275d8;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.comprar-btn:hover {
+    background-color: #025aa5;
+}
+
+select {
+    color: black;
+}
+
+.purchase-form option {
+    color:#333;
+}
+
+.payment-form {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.payment-form h3 {
+    color: #0275d8;
+}
+
+.payment-form label {
+    display: block;
+    color: #333;
+    margin-top: 10px;
+}
+
+.payment-form input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
