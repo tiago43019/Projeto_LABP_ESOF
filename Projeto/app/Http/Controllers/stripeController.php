@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Agendamento;
+use App\Models\Reserva;
 use App\Models\Atividade;
 use Illuminate\Http\Request;
 
@@ -19,37 +21,64 @@ class stripeController extends Controller
     }
 
     public function checkout(Request $request){
-        \Stripe\Stripe::setApiKey(config('services.stripe.secret'));
-    
-        $paymentMethodId = $request->input('payment_method');
-        $atividadeId = $request->input('atividade_id');
-        $atividade = Atividade::findOrFail($atividadeId);
-    
-        // Calcule o total baseado na quantidade de bilhetes e preço
-        $amount = $atividade->preco * 100 * $request->input('quantidade'); // em centavos
-    
-        $paymentIntent = \Stripe\PaymentIntent::create([
-            'amount' => $amount,
-            'currency' => 'usd',
-            'payment_method' => $paymentMethodId,
-            'confirmation_method' => 'manual',
-            'confirm' => true,
+        \Stripe\Stripe::setApiKey(config('stripe.sk'));
+        
+
+        $nome = $request->input('nome');
+        $preco = $request->input('preco');
+        $quantidade = $request->input('quantidade');        
+
+        $session = \Stripe\Checkout\Session::create([
+            'line_items' => [
+                [
+                'price_data' => [
+                    'currency' => 'eur',
+                    'product_data' => [
+                        'name' => $nome,
+                    ],
+                    'unit_amount' => $preco * 100,
+                ],
+                'quantity' => $quantidade,
+            ],
+        ],
+            'mode' => 'payment',
+            'success_url' => route('success'),
+            'cancel_url' => url('/purchase'),
+            'customer_email' => auth()->user()->email,
         ]);
+
+        $request->session()->put('dados', 
+            [
+                'atividade_id' => $request->input('atividade_id'),
+                'preco' => $preco,
+                'quantidade' => $quantidade,
+                'agendamento_id' => $request->input('agendamento'),
+
+            ]
+        );
+
+        return redirect()->away($session->url);
     
-        // Aqui você pode verificar se o pagamento foi bem-sucedido e responder adequadamente
-        if ($paymentIntent->status == 'succeeded') {
-            // Trate o sucesso do pagamento aqui
-            return redirect()->route('success');
-        } else {
-            // Trate falhas aqui
-            return redirect()->route('purchase', ['atividadeId' => $atividadeId])->withErrors('O pagamento falhou.');
-        }
     }
 
+    public function success(Request $request){
 
-    public function success(){
+        $dados = session('dados');
 
-        return view('success');
+
+        // Criar a reserva
+        $reserva = new Reserva([
+            'user_id' => auth()->user()->id,
+            'atividade_id' => $dados['atividade_id'],
+            'preco' => $dados['preco'],
+            'data' => '2021-01-01',
+            'duracao' => '00:30',
+        ]);
+
+        $reserva->save();
+
+        // Redirecionar para uma página de confirmação ou similar
+        return view('purchase', compact('atividadeId'));
 
     }
 

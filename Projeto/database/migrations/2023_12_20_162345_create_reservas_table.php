@@ -13,10 +13,11 @@ return new class extends Migration
 {
     Schema::create('reservas', function (Blueprint $table) {
         $table->id();
+        $table->foreignId('user_id')->constrained()->onDelete('cascade');
+        $table->foreignId('atividade_id')->constrained()->onDelete('cascade');
         $table->decimal('preco', 8, 2);
-        $table->date('data_partida');
+        $table->date('data');
         $table->time('duracao');
-        $table->string('local');
         $table->timestamps();
     });
 }

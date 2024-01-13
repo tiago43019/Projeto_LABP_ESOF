@@ -67,12 +67,12 @@ Route::get('/home', [AtividadesController::class, 'index']);
 Route::get('/adminhome', [AtividadesadminController::class, 'index'])->middleware('admin');
 Route::get('/atividades/{id}', [AtividadesController::class, 'showAtividade']);
 
-Route::get('/purchase/{atividadeId}', [purchaseController::class, 'showPurchasePage']);
-Route::post('/purchase/{atividadeId}', [purchaseController::class, 'processPayment']);
+//Route::get('/purchase/{atividadeId}', [purchaseController::class, 'showPurchasePage']);
+//Route::post('/purchase/{atividadeId}', [purchaseController::class, 'processPayment']);
 
-//Route::get('/purchase/{atividadeId}', [stripeController::class, 'purchase'])->name('purchase');
-//Route::post('/checkout', [stripeController::class, 'checkout'])->name('checkout');
-//Route::get('/success', [stripeController::class, 'success'])->name('success');
+Route::get('/purchase/{atividadeId}', [stripeController::class, 'purchase'])->name('purchase');
+Route::post('/checkout', [stripeController::class, 'checkout'])->name('checkout');
+Route::get('/success', [stripeController::class, 'success'])->name('success');
 
 
 Route::get('/reservas', [ReservaController::class, 'showReservas']);

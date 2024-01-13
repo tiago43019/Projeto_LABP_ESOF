@@ -15,10 +15,10 @@ class Reserva extends Model
     
 
     protected $fillable = [
-        'id',
-        'preço',
-        'data_partida',
+        'user_id',
+        'atividade_id',
+        'preco',
+        'data',
         'duracao',
-        'local',
     ];
 }
