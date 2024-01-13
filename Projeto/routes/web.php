@@ -14,6 +14,8 @@ use App\Http\Controllers\stripeController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Atividade;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\PDFController;
+
 
 
 /*
@@ -97,3 +99,4 @@ Route::get('/favoritos', [AtividadesController::class, 'favoritos'])->middleware
 
 Route::post('/atividades/{atividadeId}/comentarios', [AtividadesController::class, 'adicionarComentario'])->middleware('auth');
 
+Route::get('generate-pdf', [PDFController::class, 'generatePDF']);
