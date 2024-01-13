@@ -99,4 +99,5 @@ Route::get('/favoritos', [AtividadesController::class, 'favoritos'])->middleware
 
 Route::post('/atividades/{atividadeId}/comentarios', [AtividadesController::class, 'adicionarComentario'])->middleware('auth');
 
-Route::get('generate-pdf', [PDFController::class, 'generatePDF']);
+Route::get('generate-pdf/{id}', [PDFController::class, 'generatePDF']);
+Route::get('/download-recibo/{reservaId}', [PDFController::class,'downloadRecibo']);

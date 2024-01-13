@@ -16,8 +16,8 @@ return new class extends Migration
         $table->foreignId('user_id')->constrained()->onDelete('cascade');
         $table->foreignId('atividade_id')->constrained()->onDelete('cascade');
         $table->decimal('preco', 8, 2);
-        $table->date('data');
-        $table->time('duracao');
+        $table->string('data');
+        $table->integer('duracao');
         $table->timestamps();
     });
 }

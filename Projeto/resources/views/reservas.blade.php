@@ -11,9 +11,8 @@
         <tr>
             <th>ID da Reserva</th>
             <th>Preço</th>
-            <th>Data de partida</th>
-            <th>Duração</th>
-            <th>Local</th>
+            <th>Data</th>
+            <th>Duração (em minutos)</th>
         </tr>
     </thead>
     <tbody>
@@ -21,9 +20,8 @@
             <tr>
                 <td>{{ $reserva->id }}</td>
                 <td>{{ $reserva->preco }}</td>
-                <td>{{ $reserva->data_partida }}</td>
+                <td>{{ $reserva->data }}</td>
                 <td>{{ $reserva->duracao }}</td>
-                <td>{{ $reserva->local }}</td>
             </tr>
         @endforeach
     </tbody>

@@ -21,14 +21,17 @@
             <input type="hidden" name="atividade_id" value="{{ $atividade->id }}">
             <input type="hidden" name="nome" value="{{ $atividade->nome }}">
             <input type="hidden" name="preco" value="{{ $atividade->preco }}">
+            <input type="hidden" name="duracao" value="{{ $atividade->duracao }}">
             
             <label for="agendamento" class="form-label">Horário:
-            <select name="agendamento" id="agendamento" style="color: black;">
+            <select name="agendamento" id="agendamento" style="color: black;" onchange="updateDataValue()">
                 @foreach($agendamentos as $agendamento)
                 <option value="{{ $agendamento->id }}">{{ $agendamento->horario }}</option>
                 @endforeach
             </select>
             </label>
+
+            <input type="hidden" id="data" name="data" value="">
 
             <label for="quantidade" class="form-label">Quantidade de Bilhetes:</label>
             <input type="number" id="quantidade" name="quantidade" class="form-input" min="1" value="1" required>
@@ -39,4 +42,14 @@
     </div>
 
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    updateDataValue();
+}, false);
+
+function updateDataValue() {
+    var selectedOption = document.getElementById('agendamento').selectedOptions[0].text;
+    document.getElementById('data').value = selectedOption;
+}
+</script>
 @endsection

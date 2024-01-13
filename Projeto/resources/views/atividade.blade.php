@@ -7,6 +7,7 @@
         <h2>{{ $atividade->nome }}</h2>
         <p>Criado por: {{ $atividade->user->name }}</p>
         <p class="description">Descrição: {{ $atividade->descricao }}</p>
+        <a href="{{ url('generate-pdf/' . $atividade->id) }}">Download PDF</a>
         <div class='buttonfav'>
             <button class="favorito-btn" data-atividade-id="{{ $atividade->id }}" onclick="toggleFavorito(this)">Adicionar aos Favoritos</button>
         </div>

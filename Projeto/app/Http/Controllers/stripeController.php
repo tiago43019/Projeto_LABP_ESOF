@@ -26,7 +26,8 @@ class stripeController extends Controller
 
         $nome = $request->input('nome');
         $preco = $request->input('preco');
-        $quantidade = $request->input('quantidade');        
+        $quantidade = $request->input('quantidade'); 
+        $data = $request->input('data');     
 
         $session = \Stripe\Checkout\Session::create([
             'line_items' => [
@@ -53,6 +54,8 @@ class stripeController extends Controller
                 'preco' => $preco,
                 'quantidade' => $quantidade,
                 'agendamento_id' => $request->input('agendamento'),
+                'duracao' => $request->input('duracao'),
+                'data' => $data,
 
             ]
         );
@@ -70,15 +73,15 @@ class stripeController extends Controller
         $reserva = new Reserva([
             'user_id' => auth()->user()->id,
             'atividade_id' => $dados['atividade_id'],
-            'preco' => $dados['preco'],
-            'data' => '2021-01-01',
-            'duracao' => '00:30',
+            'preco' => $dados['preco'] * $dados['quantidade'],
+            'data' => $dados['data'],
+            'duracao' => $dados['duracao'],
         ]);
 
         $reserva->save();
 
         // Redirecionar para uma página de confirmação ou similar
-        return view('purchase', compact('atividadeId'));
+        return view('pagamentoConcluido', ['reservaId' => $reserva->id]);
 
     }
 
