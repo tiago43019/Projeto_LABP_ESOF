@@ -124,7 +124,7 @@ public function eliminarComentario($comentarioId)
          $atividade->descricao = $request->descricao;
          $atividade->duracao = $request->duracao;
          $atividade->preco = $request->preco;
-         $atividade->pontuacao = $request->pontuacao;
+         $atividade->pontuacao = 0.0;
          $atividade->created_at = now();
 
          if ($request->hasFile('foto')) {
@@ -164,7 +164,7 @@ public function eliminarComentario($comentarioId)
      $atividade->descricao = $request->descricao;
      $atividade->duracao = $request->duracao;
      $atividade->preco = $request->preco;
-     $atividade->pontuacao = $request->pontuacao;
+     $atividade->pontuacao = 0.0;
 
      if ($request->hasFile('foto')) {
         $path = $request->file('foto')->store('public/atividades');

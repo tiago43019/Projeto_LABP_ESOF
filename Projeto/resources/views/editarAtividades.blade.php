@@ -34,11 +34,6 @@
                 <label for="preco">Preço:</label>
                 <input type="decimal" id="preco" name="preco" value="{{ isset($atividade) ? $atividade->preco : '' }}">
             </div>
-
-            <div class="form-group">
-                <label for="pontuacao">Pontuação:</label>
-                <input type="decimal" id="pontuacao" name="pontuacao" value="{{ isset($atividade) ? $atividade->pontuacao : '' }}">
-            </div>
                 
             <button type="submit" id="editarAtividadeBtn">Salvar Alterações</button>
         </form>
