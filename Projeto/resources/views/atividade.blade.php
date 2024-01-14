@@ -52,14 +52,21 @@
 
             <!-- Lista de comentarios -->
             <ul id="comment-list" class="comment-list">
-                @forelse($comentarios as $comentario)
-                    <li class="comment-item">
-                        <span class="comment-user">{{ $comentario->user->username }}:</span>
-                        <span class="comment-content">{{ $comentario->content }}</span>
-                    </li>
-                @empty
-                    <p class="no-comments">Ainda não há comentários. Seja o primeiro a comentar!</p>
-                @endforelse
+            @forelse($comentarios as $comentario)
+            <li class="comment-item">
+                <span class="comment-user">{{ $comentario->user->username }}:</span>
+                <span class="comment-content">{{ $comentario->content }}</span>
+                @if(Auth::check() && Auth::id() == $comentario->user_id)
+                    <form action="{{ url('/atividades/comentario/' . $comentario->id . '/eliminar') }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="delete-comment-btn">Eliminar</button>
+                    </form>
+                @endif
+            </li>
+            @empty
+            <p class="no-comments">Ainda não há comentários. Seja o primeiro a comentar!</p>
+            @endforelse
             </ul>
         </div>
     </div>

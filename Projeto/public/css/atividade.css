@@ -214,6 +214,8 @@ h2, p {
 #comment-list {
     list-style-type: none;
     padding: 0;
+    background-color: white;
+    border-radius: 5px;
 }
 
 .comment-item {
@@ -224,7 +226,10 @@ h2, p {
 
 .comment-user {
     font-weight: bold;
+    color: black;
+    text-decoration: underline;
     margin-right: 5px;
+    margin-left: 1%;
 }
 
 .comment-content {
@@ -234,4 +239,14 @@ h2, p {
 .no-comments {
     color: #666;
     font-style: italic;
+}
+
+.delete-comment-btn{
+    margin-left: 85%;
+    right: 0;
+    background-color: #dc3545;
+}
+
+.delete-comment-btn:hover{
+    background-color: red;
 }

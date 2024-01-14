@@ -100,6 +100,7 @@ Route::post('/adicionar-remover-favorito/{atividadeId}', [AtividadesController::
 Route::get('/favoritos', [AtividadesController::class, 'favoritos'])->middleware('auth')->name('favoritos');
 
 Route::post('/atividades/{atividadeId}/comentarios', [AtividadesController::class, 'adicionarComentario'])->middleware('auth');
+Route::delete('/atividades/comentario/{comentarioId}/eliminar', [AtividadesController::class, 'eliminarComentario'])->middleware('auth');
 
 Route::get('generate-pdf/{id}', [PDFController::class, 'generatePDF']);
 Route::get('/download-recibo/{reservaId}', [PDFController::class,'downloadRecibo'])->middleware('auth');

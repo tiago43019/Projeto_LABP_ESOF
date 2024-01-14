@@ -89,6 +89,29 @@ class atividadesController extends Controller
     return redirect('/atividades/' . $atividadeId)->with('error', 'Você precisa estar autenticado para adicionar um comentário.');
 }
 
+//Eliminar um comentário seja admin ou user normal
+public function eliminarComentario($comentarioId)
+{
+    
+
+    $comentario = Comentario::find($comentarioId);
+    $user = User::find($comentario->user_id);
+
+    if($user->is_admin == 1){
+        $comentario = Comentario::find($comentarioId);
+        $comentario->delete();
+        return redirect()->back()->with('success', 'Comentário eliminado com sucesso.');
+    }
+
+    if (Auth::check() && Auth::id() == $comentario->user_id) {
+        $comentario->delete();
+        return redirect()->back()->with('success', 'Comentário eliminado com sucesso.');
+    }
+
+    return redirect()->back()->with('error', 'Você não tem permissão para eliminar este comentário.');
+}
+
+
 
 
      //Permite criar uma atividade
