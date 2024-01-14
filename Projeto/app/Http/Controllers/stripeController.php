@@ -3,24 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Agendamento;
 use App\Models\Reserva;
 use App\Models\Atividade;
 use Illuminate\Http\Request;
 
 class stripeController extends Controller
 {
+    // retorna a view de compra com os respetivos horarios disponiveis
     public function purchase($atividadeId) {
 
-        //Redireciona para a pagina de compras da atividade certa
         $atividade = Atividade::with('agendamentos')->findOrFail($atividadeId);
         $agendamentos = $atividade->agendamentos;
         return view('purchase', compact('atividade', 'agendamentos'));
-
-
     }
 
+    // Checkout
     public function checkout(Request $request){
+
         \Stripe\Stripe::setApiKey(config('stripe.sk'));
         
 
@@ -48,6 +47,7 @@ class stripeController extends Controller
             'customer_email' => auth()->user()->email,
         ]);
 
+        // Guardar os dados da reserva na sessão para depoois serem usados no success para guardar na base de dados
         $request->session()->put('dados', 
             [
                 'atividade_id' => $request->input('atividade_id'),
@@ -64,12 +64,12 @@ class stripeController extends Controller
     
     }
 
+    // Após sucesso do pagamento
     public function success(Request $request){
 
         $dados = session('dados');
 
-
-        // Criar a reserva
+        // Guardar a reserva na base de dados
         $reserva = new Reserva([
             'user_id' => auth()->user()->id,
             'atividade_id' => $dados['atividade_id'],
@@ -80,7 +80,6 @@ class stripeController extends Controller
 
         $reserva->save();
 
-        // Redirecionar para uma página de confirmação ou similar
         return view('pagamentoConcluido', ['reservaId' => $reserva->id]);
 
     }

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Reserva;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Pagination\Paginator;
@@ -11,7 +10,7 @@ use Illuminate\Pagination\Paginator;
 class ReservaController extends Controller
 {
 
-    //Mostra reservas
+    //Mostrar reservas existentes na base de dados
     public function showReservas()
     {
         if (Auth::check()) {

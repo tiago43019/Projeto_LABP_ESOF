@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Atividade;
 use App\Models\Reserva;
 use App\Models\User;
@@ -19,7 +18,6 @@ class PDFController extends Controller
             'descricao' => $atividade->descricao,
             'preco' => $atividade->preco,
             'data' => date('d/m/Y')
-            // Adicione outros campos necessários
         ];
 
         $pdf = PDF::loadView('myPDF', $data);
@@ -31,7 +29,6 @@ class PDFController extends Controller
         $reserva = Reserva::findOrFail($reservaId);
         $atividade = Atividade::findOrFail($reserva->atividade_id);
         $user = User::findOrFail($reserva->user_id);
-        // Prepare os dados para o PDF, como detalhes da reserva e pagamento
        
         $data = [
             'title' => $atividade->nome,

@@ -53,7 +53,7 @@ class atividadesController extends Controller
                 'isFavorito' => $user->favoritos()->where('atividade_id', $atividadeId)->exists(),
             ]);
         }
-        return response()->json(['error' => 'Usuário não autenticado'], 401);
+        return response()->json(['error' => 'User não autenticado'], 401);
     }
 
     //Ver favoritos caso esteja logado
@@ -65,8 +65,9 @@ class atividadesController extends Controller
 
                 return view('favoritos', compact('favoritos'));
             }
-            return redirect('/login')->with('error', 'Faça login para ver seus favoritos.');
+            return redirect('/login')->with('error', 'Faça login para ver favoritos.');
         }
+
 
     //Adiciona um comentário
     public function adicionarComentario(Request $request, $atividadeId)
@@ -86,16 +87,14 @@ class atividadesController extends Controller
 
         return redirect('/atividades/' . $atividadeId)->with('success', 'Comentário adicionado com sucesso!');
     }
-    return redirect('/atividades/' . $atividadeId)->with('error', 'Você precisa estar autenticado para adicionar um comentário.');
+    return redirect('/atividades/' . $atividadeId)->with('error', 'Precisa estar autenticado para adicionar um comentário.');
 }
 
 //Eliminar um comentário seja admin ou user normal
 public function eliminarComentario($comentarioId)
 {
     
-
     $comentario = Comentario::find($comentarioId);
-    $user = User::find($comentario->user_id);
 
     if(Auth::user()->is_admin){
         $comentario = Comentario::find($comentarioId);
@@ -108,10 +107,8 @@ public function eliminarComentario($comentarioId)
         return redirect()->back()->with('success', 'Comentário eliminado com sucesso.');
     }
 
-    return redirect()->back()->with('error', 'Você não tem permissão para eliminar este comentário.');
+    return redirect()->back()->with('error', 'Não tem permissão para eliminar este comentário.');
 }
-
-
 
 
      //Permite criar uma atividade

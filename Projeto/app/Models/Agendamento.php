@@ -9,6 +9,11 @@ class Agendamento extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'atividade_id',
+        'horario',
+    ];
+
     public function atividade() {
         return $this->belongsTo(Atividade::class);
     }
