@@ -7,7 +7,7 @@
         <p style='margin-top: 3%; margin-bottom: 2%;'>Atividades Favoritas</p>
     </div>
     
-    <div id="gallery" class="gallery">
+    <div class="gallery">
         @if($favoritos->isEmpty())
             <p class="empty">Não tens atividades favoritas.</p>
         @else 
