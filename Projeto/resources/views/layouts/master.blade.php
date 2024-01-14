@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{{ asset('css/atividade.css') }}"/>
     <link rel="stylesheet" href="{{ asset('css/purchase.css') }}"/>
     <link rel="stylesheet" href="{{ asset('css/pagamentoConcluido.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/gerirusers.css') }}"/>
 </head>
 <body id="body">
     <header>@include('includes.navbar')</header>

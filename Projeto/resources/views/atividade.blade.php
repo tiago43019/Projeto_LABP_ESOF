@@ -4,12 +4,15 @@
 
 @section('content')
     <div class="content-section">
-        <h2>{{ $atividade->nome }}</h2>
-        <p>Criado por: {{ $atividade->user->name }}</p>
-        <p class="description">Descrição: {{ $atividade->descricao }}</p>
-        <a href="{{ url('generate-pdf/' . $atividade->id) }}">Download PDF</a>
-        <div class='buttonfav'>
-            <button class="favorito-btn" data-atividade-id="{{ $atividade->id }}" onclick="toggleFavorito(this)">Adicionar aos Favoritos</button>
+        <div class="atividade-info">
+            <h2>{{ $atividade->nome }}</h2>
+            <br>
+            <p class="created-by">Criado por: {{ $atividade->user->name }}</p>
+            <p class="description">{{ $atividade->descricao }}</p>
+            <a href="{{ url('generate-pdf/' . $atividade->id) }}" class="pdf-link">Download PDF</a>
+            <div class='buttonfav'>
+                <button class="favorito-btn" data-atividade-id="{{ $atividade->id }}" onclick="toggleFavorito(this)">Adicionar aos Favoritos</button>
+            </div>
         </div>
         <div class="slideshow-container">
             @for ($i = 1; $i <= 5; $i++)
@@ -43,7 +46,7 @@
             <form id="comment-form" method="post" action="{{ url('/atividades/' . $atividade->id . '/comentarios') }}">
                 @csrf
                 <textarea id="comment-input" name="content" placeholder="Adicione um comentário..." required></textarea>
-                <button type="submit" class="comment-button" style="background-color: rgba(245, 245, 245, 0.555);">Comentar</button>
+                <button type="submit" class="comment-button" style="background-color: #3490dc;">Comentar</button>
             </form>
 
 

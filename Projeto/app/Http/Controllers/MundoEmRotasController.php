@@ -57,4 +57,8 @@ class MundoEmRotasController extends Controller
     {
         return view('criaratividade');
     }    
+    
+    public function gerirusers(){
+        return view('gerirusers');
+    }
 }

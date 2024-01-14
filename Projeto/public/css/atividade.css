@@ -10,7 +10,33 @@ body {
 }
 
 .content-section {
-    padding: 0 20px;
+    width: 80%;
+    padding: 20px;
+    background-color: rgba(245, 245, 245, 0.555);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: auto;
+}
+
+.atividade-info {
+    margin-bottom: 20px;
+}
+
+h2, p {
+    margin: 0;
+    color: black;
+}
+
+.created-by {
+    font-style: italic;
+    color: black;
+}
+
+.pdf-link {
+    display: block;
+    margin-top: 10px;
+    color: #005eff;
+    text-decoration: none;
 }
 
 .description {

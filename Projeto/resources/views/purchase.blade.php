@@ -26,7 +26,7 @@
             <label for="agendamento" class="form-label">Horário:
             <select name="agendamento" id="agendamento" style="color: black;" onchange="updateDataValue()">
                 @foreach($agendamentos as $agendamento)
-                <option value="{{ $agendamento->id }}">{{ $agendamento->horario }}</option>
+                    <option value="{{ $agendamento->id }}" style='color: black;'>{{ $agendamento->horario }}</option>
                 @endforeach
             </select>
             </label>

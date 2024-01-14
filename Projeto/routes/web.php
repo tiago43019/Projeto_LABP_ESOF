@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Atividade;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\PDFController;
+use App\Http\Controllers\GerirUsersController;
 
 
 
@@ -38,6 +39,7 @@ Route::get('/', function () {
 Route::get('/welcome', [MundoEmRotasController::class, 'welcome']);
 Route::get('/home', [MundoEmRotasController::class, 'home']);
 Route::get('/adminhome', [MundoEmRotasController::class, 'adminhome'])->middleware('admin');
+Route::get('/gerirusers', [MundoEmRotasController::class, 'gerirusers'])->middleware('admin');
 Route::get('/login', [MundoEmRotasController::class, 'login'])->name('login');
 Route::get('/perfil', [MundoEmRotasController::class, 'perfil']);
 Route::get('/login_forget_password', [MundoEmRotasController::class, 'login_forget_password']);
@@ -61,9 +63,9 @@ Route::get('/reset-password/{token}', [ResetPasswordController::class, 'showRese
 
 Route::post('/reset-password', [ResetPasswordController::class, 'reset'])->name('password.update');
 
-Route::get('/perfil', [LoginRegisterController::class, 'perfil'])->middleware('auth')->name('perfil');
-Route::get('/editar_perfil', [loginRegisterController::class, 'editarPerfil'])->name('editar_perfil');
-Route::post('/perfil/atualizar', [loginRegisterController::class, 'atualizarPerfil'])->name('perfil.atualizar');
+Route::get('/perfil', [LoginRegisterController::class, 'perfil'])->middleware('auth')->name('perfil')->middleware('auth');
+Route::get('/editar_perfil', [loginRegisterController::class, 'editarPerfil'])->name('editar_perfil')->middleware('auth');
+Route::post('/perfil/atualizar', [loginRegisterController::class, 'atualizarPerfil'])->name('perfil.atualizar')->middleware('auth');
 
 Route::get('/home', [AtividadesController::class, 'index']);
 Route::get('/adminhome', [AtividadesadminController::class, 'index'])->middleware('admin');
@@ -72,12 +74,12 @@ Route::get('/atividades/{id}', [AtividadesController::class, 'showAtividade']);
 //Route::get('/purchase/{atividadeId}', [purchaseController::class, 'showPurchasePage']);
 //Route::post('/purchase/{atividadeId}', [purchaseController::class, 'processPayment']);
 
-Route::get('/purchase/{atividadeId}', [stripeController::class, 'purchase'])->name('purchase');
-Route::post('/checkout', [stripeController::class, 'checkout'])->name('checkout');
-Route::get('/success', [stripeController::class, 'success'])->name('success');
+Route::get('/purchase/{atividadeId}', [stripeController::class, 'purchase'])->name('purchase')->middleware('auth');
+Route::post('/checkout', [stripeController::class, 'checkout'])->name('checkout')->middleware('auth');
+Route::get('/success', [stripeController::class, 'success'])->name('success')->middleware('auth');
 
 
-Route::get('/reservas', [ReservaController::class, 'showReservas']);
+Route::get('/reservas', [ReservaController::class, 'showReservas'])->middleware('auth');
 
 
 Route::get('/search', [searchController::class, 'search']);
@@ -92,7 +94,7 @@ Route::delete('/atividades/{id}', [AtividadesController::class, 'eliminarAtivida
 //Route::post('/atualizaratividade/{id}', [AtividadesadminController::class, 'atualizarAtividade']);
 
 
-Route::post('/adicionar-remover-favorito/{atividadeId}', [AtividadesController::class, 'adicionarAosFavoritos']);
+Route::post('/adicionar-remover-favorito/{atividadeId}', [AtividadesController::class, 'adicionarAosFavoritos'])->middleware('auth');
 
 
 Route::get('/favoritos', [AtividadesController::class, 'favoritos'])->middleware('auth')->name('favoritos');
@@ -100,4 +102,8 @@ Route::get('/favoritos', [AtividadesController::class, 'favoritos'])->middleware
 Route::post('/atividades/{atividadeId}/comentarios', [AtividadesController::class, 'adicionarComentario'])->middleware('auth');
 
 Route::get('generate-pdf/{id}', [PDFController::class, 'generatePDF']);
-Route::get('/download-recibo/{reservaId}', [PDFController::class,'downloadRecibo']);
+Route::get('/download-recibo/{reservaId}', [PDFController::class,'downloadRecibo'])->middleware('auth');
+
+Route::get('/gerirusers', [GerirUsersController::class, 'index'])->name('gerirusers')->middleware('admin');
+
+Route::delete('/gerirusers/{user}', [GerirUsersController::class, 'destroy'])->name('gerirusersdelete')->middleware('admin');

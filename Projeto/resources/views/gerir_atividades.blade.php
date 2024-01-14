@@ -7,7 +7,7 @@
         <p style='margin-top: 3%; margin-bottom: 2%;'>As minhas Atividades:</p>
     </div>
     
-    <div id="gallery" class="gallery">
+    <div class="gallery">
         @if($atividades->isEmpty())
             <p class="empty">Não criaste nenhuma Atividade ainda.</p>
         @else 

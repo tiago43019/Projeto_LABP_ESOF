@@ -61,7 +61,7 @@ function showSlides(n) {
     document.getElementById('explorarBtn').addEventListener('click', function(e) {
         e.preventDefault();
 
-        const isAdmin = document.querySelector('.criar-atividade') !== null;
+        const isAdmin = document.querySelector('.gerir-users') !== null;
         const destination = isAdmin ? '/adminhome#gallery' : '/home#gallery';
         const galleryElement = document.getElementById('gallery');
 

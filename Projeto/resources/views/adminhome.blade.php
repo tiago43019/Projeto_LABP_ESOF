@@ -15,9 +15,6 @@
                 <p>{{ $atividade->descricao }}</p>
                 <p class="price">{{ $atividade->preco }}€</p>
             </div>
-            <div class="editar-atividade-btn">
-                    <a href="/editaratividade/{{ $atividade->id }}">Editar Atividade</a>
-            </div>
         </div>
     @endforeach
     </div>

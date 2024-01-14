@@ -91,7 +91,7 @@ a {
 
 .favorito-btn {
   margin-right: 20px;
-  background-color: rgba(245, 245, 245, 0.555);
+  background-color: #3490dc;
   color: #fff;
   border: none;
   padding: 10px;
@@ -103,7 +103,6 @@ a {
 
 .favorito-btn:hover {
   color: black;
-  background-color: white;
 }
 
 .favorito {

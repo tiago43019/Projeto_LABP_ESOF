@@ -246,6 +246,7 @@ li input[type="search"]:hover {
  .criar-atividade,
  .gerir-favoritos,
  .gerir-atividades,
+ .gerir-users,
  .btnlogout {
    display: block;
    padding: 8px 16px;
@@ -255,6 +256,7 @@ li input[type="search"]:hover {
  }
  
  .ver-perfil:hover,
+ .gerir-users:hover,
  .gerir-reservas:hover {
    background-color: #f0f0f0;
    color: #3490dc;
