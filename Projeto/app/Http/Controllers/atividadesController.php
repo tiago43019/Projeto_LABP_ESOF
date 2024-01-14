@@ -97,7 +97,7 @@ public function eliminarComentario($comentarioId)
     $comentario = Comentario::find($comentarioId);
     $user = User::find($comentario->user_id);
 
-    if($user->is_admin == 1){
+    if(Auth::user()->is_admin){
         $comentario = Comentario::find($comentarioId);
         $comentario->delete();
         return redirect()->back()->with('success', 'Comentário eliminado com sucesso.');

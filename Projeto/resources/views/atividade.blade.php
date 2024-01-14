@@ -56,13 +56,22 @@
             <li class="comment-item">
                 <span class="comment-user">{{ $comentario->user->username }}:</span>
                 <span class="comment-content">{{ $comentario->content }}</span>
-                @if(Auth::check() && Auth::id() == $comentario->user_id)
-                    <form action="{{ url('/atividades/comentario/' . $comentario->id . '/eliminar') }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="delete-comment-btn">Eliminar</button>
-                    </form>
-                @endif
+                @auth
+                    @if(Auth::user()->is_admin)
+                        <form action="{{ url('/atividades/comentario/' . $comentario->id . '/eliminar') }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="delete-comment-btn">Eliminar</button>
+                        </form>
+                    @endif
+                    @if(Auth::check() && Auth::id() == $comentario->user_id && !Auth::user()->is_admin)
+                        <form action="{{ url('/atividades/comentario/' . $comentario->id . '/eliminar') }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="delete-comment-btn">Eliminar</button>
+                        </form>
+                    @endif
+                @endauth
             </li>
             @empty
             <p class="no-comments">Ainda não há comentários. Seja o primeiro a comentar!</p>
